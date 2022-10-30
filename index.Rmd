@@ -1,6 +1,6 @@
 --- 
 title: "Examining Social Media Disinformation"
-author: "Kate Lassiter & Renato Russo"
+author: "Kate Lassiter & Renato Russo "
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
