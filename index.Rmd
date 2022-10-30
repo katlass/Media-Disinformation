@@ -1,6 +1,6 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAMES HERE"
+title: "Examining Social Media Disinformation"
+author: "Kate Lassiter & Renato Russo"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
