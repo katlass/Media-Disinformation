@@ -1,6 +1,21 @@
+---
+title: "Disinformation"
+author: "Renato Russo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 # Proposal
 
 ## Research topic
+Short description of the topic (approximately 1/2 page)
+The topic under consideration is the role of confirmation bias in fake news adherence.
+
 
 ## Data availability
-
+The data was obtained for an academic research project that used an experimental
+design to identify the 
