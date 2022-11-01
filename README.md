@@ -1,4 +1,3 @@
-Description:
 In this project we will be examining psychometric dimensions associated with
 political orientation and susceptibility to disinformation. The data was obtained
 from an academic study conducted by researchers at the California State University

@@ -10,21 +10,23 @@ output: html_document
 In this project, we chose to address one of the many facets of the intersection between politics and disinformation: the association between confirmation bias related to political orientation and susceptibility to fake news.
 
 
-The issue of disinformation is age-old, but has gained more attention in the past few years, especially in relation to the effects it allegedly has on politics. Those effects are associated with electoral campaigns and to media coverage of the pandemic (Calvillo et al., 2020). Due to this increasing importance, research in many fields seek explanations to the causes and potential solutions to the issue. In this project, we look at the topic through the lens of cognitive psychology, the field of psychology interested in “the way in which the human mind receives impressions from the external world and interprets the impressions thus received” (Moore, 1939).
+The issue of disinformation is age-old, but has gained more attention in the past few years, especially in relation to the effects it allegedly has on politics. Those effects are associated with electoral campaigns and to media coverage of the pandemic (Calvillo et al., 2020). As well as its effects, it also seems to be critical to understand the causes
+to disinformation. Indeed, with due to the increasing relevance of the phenomenon, research in many fields seek explanations to the causes and potential solutions to the issue. In this project, we look at the topic through the lens of cognitive psychology, the field of psychology interested in “the way in which the human mind receives impressions from the external world and interprets the impressions thus received” (Moore, 1939).
 
 
 Recent research on disinformation in the field of cognitive psychology includes studies that investigate the effects of “inoculation” against fake news. According to that hypothesis, individuals become less susceptible to disinformation if they are exposed to small doses of fake news in a controlled setting, similarly to what happens with vaccines used against viruses (Compton et al., 2021). With this project, we set out to explore other aspects that are potentially associated with susceptibility to disinformation, namely those related to political orientation.
 
 –
 
-Calvillo, D. P., Ross, B. J., Garcia, R. J., Smelter, T. J., & Rutchick, A. M. (2020). Political ideology predicts perceptions of the threat of COVID-19 (and susceptibility to fake news about it). Social Psychological and Personality Science, 11(8), 1119-1128.
+Calvillo, D. P., Ross, B. J., Garcia, R. J., Smelter, T. J., & Rutchick, A. M. (2020). Political ideology predicts perceptions of the threat of COVID-19 (and susceptibility to | fake news about it). Social Psychological and Personality Science, 11(8), 1119-1128.
+
 Moore, T. V. (1939). Cognitive psychology.
-Compton, J., van der Linden, S., Cook, J., & Basol, M. (2021). Inoculation theory in the post‐truth era: Extant findings and new frontiers for contested science, misinformation, and conspiracy theories. Social and Personality Psychology Compass, 15(6), e12602.
+
+Compton, J., van der Linden, S., Cook, J., & Basol, M. (2021). Inoculation theory in the | post‐truth era: Extant findings and new frontiers for contested science, misinformation, | and conspiracy theories. Social and Personality Psychology Compass, 15(6), e12602.
 
 
 
 ## Data availability
-Because we are interested in biases and misinformation, we started looking for 
 academic studies that address that topic. With that in mind, we started browsing
 data sets available at the [Open Science Framework](https://osf.io/dashboard) 
 database. The framework is an initiative of the [Center for Open Science](https://www.cos.io/)
