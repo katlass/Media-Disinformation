@@ -10,8 +10,7 @@ output: html_document
 In this project, we chose to address one of the many facets of the intersection between politics and disinformation: the association between confirmation bias related to political orientation and susceptibility to fake news.
 
 
-The issue of disinformation is age-old, but has gained more attention in the past few years, especially in relation to the effects it allegedly has on politics. Those effects are associated with electoral campaigns and to media coverage of the pandemic (Calvillo et al., 2020). As well as its effects, it also seems to be critical to understand the causes
-to disinformation. Indeed, with due to the increasing relevance of the phenomenon, research in many fields seek explanations to the causes and potential solutions to the issue. In this project, we look at the topic through the lens of cognitive psychology, the field of psychology interested in “the way in which the human mind receives impressions from the external world and interprets the impressions thus received” (Moore, 1939).
+The issue of disinformation is age-old, but has gained more attention in the past few years, especially in relation to the effects it allegedly has on politics. Those effects are associated with electoral campaigns and to media coverage of the pandemic (Calvillo et al., 2020). As well as its effects, it also seems to be critical to understand the causes to disinformation. Indeed, with due to the increasing relevance of the phenomenon, research in many fields seek explanations to the causes and potential solutions to the issue. In this project, we look at the topic through the lens of cognitive psychology, the field of psychology interested in “the way in which the human mind receives impressions from the external world and interprets the impressions thus received” (Moore, 1939).
 
 
 Recent research on disinformation in the field of cognitive psychology includes studies that investigate the effects of “inoculation” against fake news. According to that hypothesis, individuals become less susceptible to disinformation if they are exposed to small doses of fake news in a controlled setting, similarly to what happens with vaccines used against viruses (Compton et al., 2021). With this project, we set out to explore other aspects that are potentially associated with susceptibility to disinformation, namely those related to political orientation.
@@ -27,43 +26,20 @@ Compton, J., van der Linden, S., Cook, J., & Basol, M. (2021). Inoculation theor
 
 
 ## Data availability
-academic studies that address that topic. With that in mind, we started browsing
-data sets available at the [Open Science Framework](https://osf.io/dashboard) 
-database. The framework is an initiative of the [Center for Open Science](https://www.cos.io/)
-that makes available data sets and other content related to academic research
-following open source principles.
+Because we are interested in biases and misinformation, we started looking for academic studies that address that topic. With that in mind, we started browsing data sets available at the [Open Science Framework](https://osf.io/dashboard)  database. The framework is an initiative of the [Center for Open Science](https://www.cos.io/) that makes available data sets and other content related to academic research following open source principles.
 
-We used the portal's search tool to identify data sets using the search query
-"disinformation + politics" and found a few projects related to our topic. We
-decided upon one that addresses one specific facet of disinformation and media
-consumption: [Confirmation bias in fact-checking political claims](https://osf.io/e6jy4/).
-After discussion among the team members, we understood that dataset offers a
-diversity of types across its 53 dimensions and is accompanied by a comprehensive
-dictionary. It also presents 247 observations, which we believe will enable the
-identification of patterns across groups such as experiment conditions, political
-party affiliation, and gender.
+We used the portal's search tool to identify data sets using the search query "disinformation + politics" and found a few projects related to our topic. We decided upon one that addresses one specific facet of disinformation and media consumption: [The fake news and confirmation bias](https://osf.io/fqncj) dataset from the [Confirmation bias in fact checking political claims research project](https://osf.io/e6jy4/).
+After discussion among the team members, we understood that dataset offers a diversity of types across its 53 dimensions and is accompanied by a comprehensive [dictionary](https://osf.io/9r8hy). It also presents 247 observations, which we believe will enable the
+identification of patterns across groups such as experiment conditions, political party affiliation, and gender.
 
-The data source was obtained by a team of researchers led by [Dr. Dustin Calvillo](https://scholar.google.com/citations?user=PxQ8_zEAAAAJ&hl=en&oi=ao),
-a professor and researcher at California State University San Marcos. The data set
-is hosted at OSF open source data base.
+The data source was obtained by a team of researchers led by [Dr. Dustin Calvillo](https://scholar.google.com/citations?user=PxQ8_zEAAAAJ&hl=en&oi=ao), a professor and researcher at California State University San Marcos. The data set is hosted at OSF open source data base.
 
-More information is needed in relation to the specific research design, but it is
-possible to infer that the data was obtained through experiment and surveys. The
-experiment consisted of exposing individuals to fake and real headlines that
-subjects had to evaluate and varied between conservative and progressive political
-orientation. The survey includes psychometric dimensions, such as an actively
+More information is needed in relation to the specific research design, but it is possible to infer that the data was obtained through experiment and surveys. The experiment consisted of exposing individuals to fake and real headlines that subjects had to evaluate and varied between conservative and progressive political orientation. The survey includes psychometric dimensions, such as an actively
 open-minded thinking scale and attitude toward fact-checking.
 
-The data is available as an .sav file, and the codebook (data dictionary) as a
-.pdf file. The .sav file containing one observation per row and one variable per
-column. The data can be downloaded directly from the website, and can be imported
-to R using the ```read_sav``` function in the ```haven``` package.
+The data is available as an .sav file, and the codebook (data dictionary) as a .pdf file. The .sav file containing one observation per row and one variable per column. The data can be downloaded directly from the website, and can be imported to R using the ```read_sav``` function in the ```haven``` package.
 
-In case of questions about the data, Dr. Calvillo's contact information is 
-available on his profile pages both on OSF's and CSU's websites.
+In case of questions about the data, Dr. Calvillo's contact information isavailable on his profile pages both on OSF's and CSU's websites.
 
-The data has seemingly good overall quality. Apparently, NAs have been removed
-prior to being made available as an open source data set. The data dictionary has
-an apparent good quality too, with short explanations to all variables. One
-possible challenge 
+The data has seemingly good overall quality. Apparently, NAs have been removed prior to being made available as an open source data set. The data dictionary has an apparent good quality too, with short explanations to all variables. One possible challenge is that further explanation to variables will need to be looked up in related literature -- this can be time-consuming, but, at first glance, papers written by the team contain well-documented bibliography.
 
