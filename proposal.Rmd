@@ -1,7 +1,6 @@
 ---
-title: "Disinformation"
-author: "Renato Russo"
-date: "`r Sys.Date()`"
+title: "Disinformation, social media, and political orientation"
+author: "Kate Lassiter, Renato Russo"
 output: html_document
 ---
 
@@ -13,7 +12,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Research topic
 In this project, we chose to address one of the many facets of the intersection between politics and disinformation: the association between confirmation bias related to political orientation and susceptibility to fake news.
-The issue of disinformation is age-old, but it has gained more attention in the past few years, especially in relation to the effects it allegedly has on politics. Those effects are now associated with the electoral campaigns and to media coverage of the pandemic (Calvillo et al., 2020). Due to this increasing importance, research in many fields seek explanations to the causes and potential solutions to the issue. In this project, we look at the topic through the lens of cognitive psychology, the field of psychology interested in “the way in which the human mind receives impressions from the external world and interprets the impressions thus received” (Moore, 1939).
+
+
+The issue of disinformation is age-old, but has gained more attention in the past few years, especially in relation to the effects it allegedly has on politics. Those effects are now associated with the electoral campaigns and to media coverage of the pandemic (Calvillo et al., 2020). Due to this increasing importance, research in many fields seek explanations to the causes and potential solutions to the issue. In this project, we look at the topic through the lens of cognitive psychology, the field of psychology interested in “the way in which the human mind receives impressions from the external world and interprets the impressions thus received” (Moore, 1939).
+
+
 Recent research on disinformation in the field of cognitive psychology include studies that investigate the effects of “inoculation” against fake news. According to that hypothesis, individuals become less susceptible to disinformation if they are exposed to small doses of fake news in a controlled setting, similarly to what happens with vaccines used against viruses (Compton et al., 2021). With this project, we set out to explore other aspects that are potentially associated with susceptibility to disinformation, namely those related to political orientation.
 
 –
