@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Proposal | Disinformation</title>
-  <meta name="description" content="Chapter 2 Proposal | Disinformation" />
+  <title>Chapter 2 Proposal | Disinformation, social media, and political orientation</title>
+  <meta name="description" content="Chapter 2 Proposal | Disinformation, social media, and political orientation" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Proposal | Disinformation" />
+  <meta property="og:title" content="Chapter 2 Proposal | Disinformation, social media, and political orientation" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Proposal | Disinformation" />
+  <meta name="twitter:title" content="Chapter 2 Proposal | Disinformation, social media, and political orientation" />
   
   
   
 
-<meta name="author" content="Renato Russo" />
+<meta name="author" content="Kate Lassiter, Renato Russo" />
 
 
-<meta name="date" content="2022-10-31" />
+<meta name="date" content="2022-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -98,7 +98,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Disinformation</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Disinformation, social media, and political orientation</a>
           </h1>
         </div>
 
@@ -110,9 +110,26 @@
 <h1><span class="header-section-number">Chapter 2</span> Proposal<a href="proposal.html#proposal" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="research-topic" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Research topic<a href="proposal.html#research-topic" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this project, we chose to address one of the many facets of the intersection between politics and disinformation: the association between confirmation bias related to political orientation and susceptibility to fake news.</p>
+<p>The issue of disinformation is age-old, but has gained more attention in the past few years, especially in relation to the effects it allegedly has on politics. Those effects are associated with electoral campaigns and to media coverage of the pandemic (Calvillo et al., 2020). As well as its effects, it also seems to be critical to understand the causes to disinformation. Indeed, with due to the increasing relevance of the phenomenon, research in many fields seek explanations to the causes and potential solutions to the issue. In this project, we look at the topic through the lens of cognitive psychology, the field of psychology interested in “the way in which the human mind receives impressions from the external world and interprets the impressions thus received” (Moore, 1939).</p>
+<p>Recent research on disinformation in the field of cognitive psychology includes studies that investigate the effects of “inoculation” against fake news. According to that hypothesis, individuals become less susceptible to disinformation if they are exposed to small doses of fake news in a controlled setting, similarly to what happens with vaccines used against viruses (Compton et al., 2021). With this project, we set out to explore other aspects that are potentially associated with susceptibility to disinformation, namely those related to political orientation.</p>
+<p>–</p>
+<p>Calvillo, D. P., Ross, B. J., Garcia, R. J., Smelter, T. J., &amp; Rutchick, A. M. (2020). Political ideology predicts perceptions of the threat of COVID-19 (and susceptibility to | fake news about it). Social Psychological and Personality Science, 11(8), 1119-1128.</p>
+<p>Moore, T. V. (1939). Cognitive psychology.</p>
+<p>Compton, J., van der Linden, S., Cook, J., &amp; Basol, M. (2021). Inoculation theory in the | post‐truth era: Extant findings and new frontiers for contested science, misinformation, | and conspiracy theories. Social and Personality Psychology Compass, 15(6), e12602.</p>
 </div>
 <div id="data-availability" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Data availability<a href="proposal.html#data-availability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Because we are interested in biases and misinformation, we started looking for academic studies that address that topic. With that in mind, we started browsing data sets available at the <a href="https://osf.io/dashboard">Open Science Framework</a> database. The framework is an initiative of the <a href="https://www.cos.io/">Center for Open Science</a> that makes available data sets and other content related to academic research following open source principles.</p>
+<p>We used the portal’s search tool to identify data sets using the search query “disinformation + politics” and found a few projects related to our topic. We decided upon one that addresses one specific facet of disinformation and media consumption: <a href="https://osf.io/fqncj">The fake news and confirmation bias</a> dataset from the <a href="https://osf.io/e6jy4/">Confirmation bias in fact checking political claims research project</a>.
+After discussion among the team members, we understood that dataset offers a diversity of types across its 53 dimensions and is accompanied by a comprehensive <a href="https://osf.io/9r8hy">dictionary</a>. It also presents 247 observations, which we believe will enable the
+identification of patterns across groups such as experiment conditions, political party affiliation, and gender.</p>
+<p>The data source was obtained by a team of researchers led by <a href="https://scholar.google.com/citations?user=PxQ8_zEAAAAJ&amp;hl=en&amp;oi=ao">Dr. Dustin Calvillo</a>, a professor and researcher at California State University San Marcos. The data set is hosted at OSF open source data base.</p>
+<p>More information is needed in relation to the specific research design, but it is possible to infer that the data was obtained through experiment and surveys. The experiment consisted of exposing individuals to fake and real headlines that subjects had to evaluate and varied between conservative and progressive political orientation. The survey includes psychometric dimensions, such as an actively
+open-minded thinking scale and attitude toward fact-checking.</p>
+<p>The data is available as an .sav file, and the codebook (data dictionary) as a .pdf file. The .sav file containing one observation per row and one variable per column. The data can be downloaded directly from the website, and can be imported to R using the <code>read_sav</code> function in the <code>haven</code> package.</p>
+<p>In case of questions about the data, Dr. Calvillo’s contact information isavailable on his profile pages both on OSF’s and CSU’s websites.</p>
+<p>The data has seemingly good overall quality. Apparently, NAs have been removed prior to being made available as an open source data set. The data dictionary has an apparent good quality too, with short explanations to all variables. One possible challenge is that further explanation to variables will need to be looked up in related literature – this can be time-consuming, but, at first glance, papers written by the team contain well-documented bibliography.</p>
 
 </div>
 </div>
