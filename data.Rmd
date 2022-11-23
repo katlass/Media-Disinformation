@@ -1,6 +1,16 @@
 # Data 
 
 ## Sources
+```{r}
+library(haven)
+data <- read_sav("fake_news_confirmation_bias_x2.sav")
+dim(data)
+View(str(data))
+```
+Data used in this project was originally collected by a team based in California State University San Marcos, and led by [Dr. Dustin Calvillo](https://scholar.google.com/citations?user=PxQ8_zEAAAAJ&hl=en&oi=ao). A visit to his Google Scholar profile indicates that his recent research has focused on employing quantitative methods from cognitive psychology to the study of contemporary communication phenomena, especially mis- and disinformation.
+    This specific data set – [the fake news and confirmation bias](https://osf.io/fqncj) – is part of the [Confirmation bias in fact checking political claims research project](https://osf.io/e6jy4/). There is a similar dataset in the same project, which is apparently a previous version of the one used in this project (suffixes x1 and x2, respectively. Although both datasets share the same variables, a few are present in one and not in the other. For example, “disconfirm_bias” is present in x1, but not in x2; the opposite is true for “ideology” and “condition” (referring to “fact-checking conditions”). More clarification was requested via email to the principal investigator, but we are assuming that x2 is a more refined version of x1, so we opted to use the former for our analysis.
+    The dataset has 247 observations of 53 variables
+
 
 ## Cleaning / transformation
 
