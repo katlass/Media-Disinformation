@@ -1,16 +1,23 @@
 # Data 
 
 ## Sources
+Data used in this project was originally collected by a team based in California State University San Marcos, and led by [Dr. Dustin Calvillo](https://scholar.google.com/citations?user=PxQ8_zEAAAAJ&hl=en&oi=ao). A visit to his Google Scholar profile indicates that his recent research has focused on employing quantitative methods from cognitive psychology to the study of contemporary communication phenomena, especially mis- and disinformation.
+    This specific data set – [the fake news and confirmation bias](https://osf.io/fqncj) – is part of the [Confirmation bias in fact checking political claims research project](https://osf.io/e6jy4/). There is a similar dataset in the same project, which is apparently a previous version of the one used in this project (suffixes x1 and x2, respectively. Although both datasets share the same variables, a few are present in one and not in the other. For example, “disconfirm_bias” is present in x1, but not in x2; the opposite is true for “ideology” and “condition” (referring to “fact-checking conditions”). More clarification was requested via email to the principal investigator, but we are assuming that x2 is a more refined version of x1, so we opted to use the former for our analysis.
+    The dataset has 247 observations of 53 variables, all of which are “double.” However, the data dictionary indicates that many of those represent other types of data and have possibly been transformed by the authors before publishing the data set. For example, the variable ```pol_party``` originally has values “Democrat” and “Repubican,” which are now represented by 1 and 2, respectively; ```gender``` originally accepted values “female,” “male,” “other,” and “decline to state,” and now are coded from 1 to 4, in that order. Others are originally integers, for example, ```t_concordant```, which represents “total number f fact-checks for true politically concordant headlines.” The same is true for the Likert-type scale variable ```ideology```, whose rating ranges from 1 to 7, “from extremely liberal to extremely conservative.” A third class that was present in the original dataset was “time,” the case, for example, of ```T_dem_rt``` (“mean reading time for true pro-liberal headlines”). Lastly, there are 2 variables that gorup other variables: ```CRT```` is the “total number of CRT items answered correctly” (0-6); and ```AOT```, which is the mean of items in the “active open-minded thinking” (1-5).
+    One possible challenge that may arise as we start the exploratory data analysis is the transformation of time values form doubles to time and date format. In terms of missing values, although the data set seems to have been pre-processed in order to exclude NAs, there are 4 observations that contain missing values (1 NA each).
 ```{r}
 library(haven)
 data <- read_sav("fake_news_confirmation_bias_x2.sav")
 dim(data)
-View(str(data))
-```
-Data used in this project was originally collected by a team based in California State University San Marcos, and led by [Dr. Dustin Calvillo](https://scholar.google.com/citations?user=PxQ8_zEAAAAJ&hl=en&oi=ao). A visit to his Google Scholar profile indicates that his recent research has focused on employing quantitative methods from cognitive psychology to the study of contemporary communication phenomena, especially mis- and disinformation.
-    This specific data set – [the fake news and confirmation bias](https://osf.io/fqncj) – is part of the [Confirmation bias in fact checking political claims research project](https://osf.io/e6jy4/). There is a similar dataset in the same project, which is apparently a previous version of the one used in this project (suffixes x1 and x2, respectively. Although both datasets share the same variables, a few are present in one and not in the other. For example, “disconfirm_bias” is present in x1, but not in x2; the opposite is true for “ideology” and “condition” (referring to “fact-checking conditions”). More clarification was requested via email to the principal investigator, but we are assuming that x2 is a more refined version of x1, so we opted to use the former for our analysis.
-    The dataset has 247 observations of 53 variables
+str(data)
 
+library(magrittr)
+(classes_data <- data.frame(variable = names(data),
+           class = sapply(data, typeof)))
+table(classes_data$variable)
+
+extracat::visna(data)
+```
 
 ## Cleaning / transformation
 
