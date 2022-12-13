@@ -16,7 +16,7 @@ library(magrittr)
            class = sapply(data, typeof)))
 table(classes_data$variable)
 
-extracat::visna(data)
+#extracat::visna(data)
 ```
 
 ## Cleaning / transformation
