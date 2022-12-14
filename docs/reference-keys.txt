@@ -6,5 +6,10 @@ data
 sources
 cleaning-transformation
 missing-value-analysis
+results
+age-vs-total-fact-checks-by-ideology-and-gender
+correlation-between-reading-times
+scatterplot-reading-time-for-concordant-and-discordant-headlines
+ridgeline-plot-aot-mean-rating-and-correct-crt-answers-across-ideologies
 interactive-component
 conclusion
