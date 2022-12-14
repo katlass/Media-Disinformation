@@ -7,7 +7,10 @@ library(markdown)
 library(rmarkdown)
 library(haven)
 library(tidyverse)
-dataset = as.data.frame(read_sav("/Users/renatorusso/Desktop/Ed.D./GR5702/media_disinformation/fake_news_confirmation_bias_x2.sav"))
+library(gridExtra)
+library(grid)
+
+dataset = as.data.frame(read_sav("fake_news_confirmation_bias_x2.sav"))
 
 str(dataset)
 
