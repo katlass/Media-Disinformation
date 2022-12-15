@@ -8,8 +8,14 @@ library(rmarkdown)
 library(haven)
 library(tidyverse)
 library(gridExtra)
+# install.packages("wesanderson")
+library(wesanderson)
+# install.packages("hrbrthemes")
+library(hrbrthemes) # for plot themes
+library(ggplot2)
 library(grid)
-
+# install.packages("gridtext")
+library(gridtext)
 dataset = as.data.frame(read_sav("fake_news_confirmation_bias_x2.sav"))
 
 str(dataset)
@@ -23,7 +29,7 @@ dataset$pol_party <- haven::as_factor(dataset$pol_party)
 dataset$gender <- haven::as_factor(dataset$gender)
 dataset$condition <- haven::as_factor(dataset$condition)
 dataset %>%
-  filter(gender <= 1)
+  filter(gender == "female" | gender == "male")
 
 #
 # dataset %>%
@@ -31,25 +37,89 @@ dataset %>%
 #   ggplot() +
 #   geom_mosaic(aes(x = product(ideology, pol_party), fill = gender))
 
-c1 <- ggplot(dataset) +
-  geom_bar(aes(gender))
+c1 <- dataset %>%
+  filter(gender == "female" | gender == "male") %>% 
+  ggplot(aes(gender, fill = gender)) +
+  geom_bar() +
+  scale_fill_manual(
+    values = c("#F3722C",
+               "#43AA8B")) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Gender of respondents") +
+  ylab("Count") +
+  xlab("") +
+  theme(legend.position = "none") +
+  scale_x_discrete(labels=c("female" = "Female",
+                            "male" = "Male"))
+  
 c1
 
-c2 <- ggplot(dataset) +
-  geom_bar(aes(pol_party))
+
+c2 <- ggplot(dataset, aes(pol_party, fill = pol_party), color = "white") +
+  geom_bar() +
+  scale_fill_manual(values=c("#277DA1",
+                             "#F94144")) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Political affiliation") +
+  ylab("Count") +
+  xlab("") +
+  theme(legend.position = "none") +
+  scale_x_discrete(labels=c("democrat" = "Democrat",
+                            "republican" = "Republican"))
+  
 c2
 
-c3 <- ggplot(dataset) +
-  geom_bar(aes(ideology))
+c3 <- ggplot(dataset, aes(ideology, fill = ideology), color = "white") +
+  geom_bar() +
+  scale_fill_manual(values = c("#277DA1",
+                               "#8C9ACC",
+                               "#95D1FF",
+                               "#EECDF1",
+                               "#F58CAD",
+                               "#FA6164",
+                               "#F94144")) +
+  theme_minimal()  +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Ideology") +
+  ylab("Count") +
+  xlab("") +
+  theme(legend.position = "none") +
+  scale_x_discrete(labels=c("1" = "Extremely\nliberal",
+                            "2" = "",
+                            "3" = "",
+                            "4" = "",
+                            "5" = "",
+                            "6" = "",
+                            "7" = "Extremely\nconservative"))
 c3
 
-c4 <- ggplot(dataset) +
-  geom_bar(aes(condition))
+c4 <- ggplot(dataset, aes(condition, fill = condition)) +
+  geom_bar() +
+  scale_fill_manual(values = c("#90BE6D",
+                               "#F9844A")) +
+  theme_minimal()  +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Experimental fact-checking condition") +
+  ylab("Count") +
+  xlab("") +
+  theme(legend.position = "none") +
+  scale_x_discrete(labels=c("easy" = "Easy",
+                            "difficult" = "Difficult"))
 c4
 
-print(grid.arrange(c1, c2, c3, c4))
+grid.arrange(c1, c2, c3, c4, nrow = 2,
+             top = textGrob("Overview of respondents",
+                            gp=gpar(fontsize=20)))
+
 
 ```
+The charts above show that the sample is relatively balanced in terms of their political affiliation and ideology. About half of the sample identifies themselves as Democrats, half as Republicans. As for ideology, despite the difference in the extremes (the number of extremely liberals is about double that of extremely conservatives), the total numbers are rather similar at each side (124 to the side of liberals; 123 to the side of conservatives).
+As for gender, we can see a large gap between female and male respondents (166 x 178, respectively). Respondents who chose "other" or opted to not disclose their genders account for a total of 3 individuals, and are not shown in this chart (even if those categories were "topcoded", the height of the bars would be very low).
+The researchers also achieved an important symmetry between the two experimental conditions of fact-checking: 125 were assigned to "easy;" 122 to "difficult."
+
+
 #### Political Concordance vs Number of Fact-checks
 ```{r}
 library(ggplot2)
@@ -57,112 +127,133 @@ library(gridExtra)
 library(grid)
 
 p1 <- ggplot(dataset,aes(x = t_concordant)) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset, pol_party == 'democrat'),fill = "blue", alpha = 0.5) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset, pol_party == 'republican'),fill = "red", alpha = 0.5) +
+    geom_bar(data=subset(dataset, pol_party == 'democrat'), fill = "#277DA1", alpha = 0.8) +
+    geom_bar(data=subset(dataset, pol_party == 'republican'), fill = "#F94144", alpha = 0.5) +
   ylab("Count") +
   labs(title = "True Concordant") +
   xlab("") +
   ylab("Count") +
-  theme(legend.position = "none")
+  theme(legend.position = "top") +
+  ylim(0, 35) +
+  theme_minimal()
 p1
 
 p2 <- ggplot(dataset,aes(x = f_concordant)) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset, pol_party == 'democrat'),fill = "blue", alpha = 0.5) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset, pol_party == 'republican'),fill = "red", alpha = 0.5) +
+    geom_bar(data=subset(dataset, pol_party == 'democrat'),fill = "#277DA1", alpha = 0.8) +
+    geom_bar(data=subset(dataset, pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
   labs(title = "False Concordant") +
   xlab("") +
-  ylab("")
+  ylab("") +
+  ylim(0, 35) +
+  theme_minimal()
 p2
 
 p3 <- ggplot(dataset,aes(x = t_discordant)) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset, pol_party == 'democrat'),fill = "blue", alpha = 0.5) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset, pol_party == 'republican'),fill = "red", alpha = 0.5) +
+    geom_bar(data=subset(dataset, pol_party == 'democrat'),fill = "#277DA1", alpha = 0.8) +
+    geom_bar(data=subset(dataset, pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
   labs(title = "True Discordant") +
   xlab("") +
-  ylab("")
+  ylab("") +
+  ylim(0, 35) +
+  theme_minimal()
 p3
 
 p4 <- ggplot(dataset,aes(x = f_discordant)) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset, pol_party == 'democrat'),fill = "blue", alpha = 0.5) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset, pol_party == 'republican'),fill = "red", alpha = 0.5) +
+    geom_bar(data=subset(dataset, pol_party == 'democrat'),fill = "#277DA1", alpha = 0.8) +
+    geom_bar(data=subset(dataset, pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
   labs(title = "False Discordant") +
   xlab("") +
-  ylab("")
+  ylab("") +
+  ylim(0, 35) +
+  theme_minimal()
 p4
 
+# Creating a common legend for the 4 plots
+get_legend<-function(myggplot){ # source for this function: http://www.sthda.com/english/wiki/wiki.php?id_contents=7930
+  tmp <- ggplot_gtable(ggplot_build(myggplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)
+}
+
+
 grid.arrange(p1, p2, p3, p4,
-             ncol = 4,
-             nrow = 1,
-             top = textGrob("Political Concordance and Total Number of Fact-Checks"),
+             ncol = 2,
+             nrow = 2,
+             top = textGrob("Political concordance and total number of fact-checks", gp=gpar(fontsize=20)),
              bottom = textGrob("Number of Fact-checks"))
 
-# how to include common legend for charts with grid.arrange(): https://www.geeksforgeeks.org/add-common-legend-to-combined-ggplot2-plots-in-r/
-#
-# # TRYING TO CONVEY THE SAME INFO WITH BOXPLOTS
-# #political party vs total number of fact-checks:
-# dataset$pol_party
-# dataset$t_concordant
-# dataset$pol_party <- haven::as_factor(dataset$pol_party)
-# dataset$f_concordant
-#
-# p1 <- ggplot(data = dataset, aes(x = pol_party, y = t_concordant, color = pol_party)) +
-#   geom_boxplot() +
-#   geom_jitter(size = 0.5, height = 0.1) +
-#   labs(title = "True concordant") +
-#   xlab("") +
-#   ylab("Number of fact-checks") +
-#   theme(legend.position = "none")
-#
-# p2 <- ggplot(data = dataset, aes(x = pol_party, y = f_concordant, color = pol_party)) +
-#   geom_boxplot() +
-#   geom_jitter(size = 0.5, height = 0.1) +
-#   labs(title = "False concordant") +
-#   xlab("") +
-#   ylab("")+
-#   theme(legend.position = "none")
-#
-# p3 <- ggplot(data = dataset, aes(x = pol_party, y = t_discordant, color = pol_party)) +
-#   geom_boxplot() +
-#   geom_jitter(size = 0.5, height = 0.1) +
-#   labs(title = "True discordant") +
-#   xlab("") +
-#   ylab("")+
-#   theme(legend.position = "none")
-#
-# p4 <-ggplot(data = dataset, aes(x = pol_party, y = f_discordant, color = pol_party)) +
-#   geom_boxplot() +
-#   geom_jitter(size = 0.5, height = 0.1) +
-#   labs(title = "False discordant") +
-#   xlab("") +
-#   ylab("")+
-#   theme(legend.position = "none")
-
-# grid.arrange(p1, p2, p3, p4,
-#              ncol = 4,
-#              nrow = 1,
-#              top = textGrob("Political Party Affiliation vs Total Number of Fact-Checks"),
-#              bottom = textGrob("Political Party"))
 
 ```
+The chart above shows the amount of fact-checks conducted by individuals according to their political affiliation: Republicans are in red, Democrats are in blue, and the colors have a level of transparency (alpha). Each of the individual charts refers to concordance or discordance between the information presented and the individual's political perspective. Therefore, "True concordant" refers to information that is true and aligned with the respondent's political perspective; "False concordant" refers to information that is false and concordant with the individual's political perspective; the same logic applies to the other two categories.
+Some of the charts show interesting patterns. For example, the top-right plot (True concordant) shows an intriguing symmetry. The number of Republicans who perform 0 fact check on true concordant news is higher than that of Democrats. The same is true for 1 and 2 fact-checks. The numbers are very similar on the other side of the chart, but now Democrats outnumber Republicans for 4, 5, and 6 fact-checks.
+An almost opposite pattern arises for False discordant headlines, although with less stark symmetry. Here, Republicans are also the most representative group performing 0 fact-checks, and Democrats are majority among those performing 6 fact-checks. The number of individuals are the same across political parties for 1 and 5 fact-checks, and Democrats are majority for 2 and 3 fact-checks.
 
-
-#### Age vs Total Fact Checks by Ideology and Gender
+#### Age vs Total Fact Checks by Ideology and Gender - STILL UNSURE ABOUT THIS ONE
 ```{r}
 class(dataset$age)
 class(dataset$total_fact_checks)
 dataset$gender
 
-# CHANGE LABELS
-# plot_names <- c('1' = "female",
-#                 '2' = "Male")
+
 class((dataset$ideology))
+# 
+# dataset %>%
+#   filter(gender == "male" | gender == "female") %>%
+#   ggplot(aes(x = ideology, y = total_fact_checks)) +
+#   geom_jitter(width = 0.1) +
+#   # facet_wrap("gender") +
+#   # scale_color_manual(values = c("#277DA1",
+#   #                              "#8C9ACC",
+#   #                              "#95D1FF",
+#   #                              "#EECDF1",
+#   #                              "#F58CAD",
+#   #                              "#FA6164",
+#   #                              "#F94144")) +
+#   theme_minimal()  +
+#   theme(plot.title = element_text(hjust = 0.5)) +
+#   labs(title = "Number of fact-checks by gender and ideology") +
+#   ylab("Total fact checks") +
+#   xlab("Age")
+  # scale_x_discrete(labels=c("1" = "Extremely\nliberal",
+  #                           "2" = "",
+  #                           "3" = "",
+  #                           "4" = "",
+  #                           "5" = "",
+  #                           "6" = "",
+  #                           "7" = "Extremely\nconservative")) +
+  # scale_x_continuous(breaks = scales::pretty_breaks(n = 5))
+
 dataset %>%
   filter(gender == "male" | gender == "female") %>%
-  ggplot(aes(x = age, y = total_fact_checks, color = as.numeric(ideology))) +
+  ggplot(aes(x = age, y = total_fact_checks, color = ideology)) +
   geom_point() +
-  facet_wrap("gender")
-
+  facet_wrap("gender") +
+  scale_color_manual(values = c("#277DA1",
+                               "#8C9ACC",
+                               "#95D1FF",
+                               "#EECDF1",
+                               "#F58CAD",
+                               "#FA6164",
+                               "#F94144")) +
+  theme_minimal()  +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Number of fact-checks by gender and ideology") +
+  ylab("Total fact checks") +
+  xlab("Age") +
+  scale_x_discrete(labels=c("1" = "Extremely\nliberal",
+                            "2" = "",
+                            "3" = "",
+                            "4" = "",
+                            "5" = "",
+                            "6" = "",
+                            "7" = "Extremely\nconservative")) +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 5))
+  
 ```
+The chart above shows that there are no salient trends in terms of fact-checking when comparing genders and ideologies.
+
+#### Actively open-minded thinking and political affiliation
 ```{r}
 dataset$AOT
 class(dataset$AOT)
@@ -171,11 +262,25 @@ dataset %>%
   filter(gender == "female" | gender == "male") %>%
   ggplot(aes(x = pol_party, y = AOT, color = pol_party)) +
   geom_boxplot() +
-  labs(title = "Actively Open-Minded Thinking vs Political Party") +
+  labs(title = "Actively open-minded thinking vs political party") +
   geom_jitter(size = 0.3, height = 0.2, width = 0.1) +
-  facet_grid(~ gender)
+  facet_grid(~ gender) +
+  theme_minimal()  +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Actively open-minded thinking vs political party and gender") +
+  ylab("Actively open-minded thinking") +
+  xlab("") +
+  scale_x_discrete(labels=c("democrat" = "Democrat",
+                            "republican" = "Republican")) +
+  scale_color_manual(values=c("#277DA1",
+                             "#F94144"))
+
 
 ```
+The boxplots show the score for actively open-minded thinking -- "a general prescriptive theory that defines a standard or norm for all thinking, with emphasis on its role in the judgment of the thinking of others, and in maintaining appropriate confidence" (Baron, 2019). The chart shows that the most sensitive difference in that measure appears when comparing male participants across political affiliations: the median score for Democrat men is above the third quartile for Republican men. It is also noteworthy that all quartiles for Republican men are below their counterparts for Democrat men, although the minimum and maximum in one group are not very distant to the same measures in the other.
+Similarly, difference between quartiles also appear among women, and the median for female Democrats is very close to Republicans' third quartile.
+The comparison between the same gender and across political parties does not show substantial differences. In the comparison across genders, it is important to note that the sample size for women is about double the size for men.
+
 
 ```{r}
 ggplot(dataset, aes(x = CRT)) +
@@ -183,32 +288,18 @@ ggplot(dataset, aes(x = CRT)) +
 
 library(vcd)
 doubledecker(dataset$pol_party ~ dataset$CRT, data = dataset,
-             gp = gpar(fill = c("blue", "red")))
+             gp = gpar(fill = c("#277DA1", "#F94144")))
 
 ```
 
+The double decker chart shows the total number of items responded correctly in the CRT scale ("Cognitive Reflection Test," Frederick, 2005). This test was originally employed as an alternative to IQ tests in the contexts of business and economics, but has been adopted by many scholars investigating political motivations of misinformation in the past years.The width of "spines" in the chart points to a tendency of increase in size of the groups for higher numbers of correct answers. This is evident, for example, by the width of the spine for 6 correct answers. That is, when grouped by the number of correct answers, the largest segment is the one with participants who answered all questions correctly.
+There is a fair amount of variance in terms of affiliation to political parties across numbers of correct answers, except in the lower end, where Republicans prevail in this specific sample. Although no conclusive evidence can be drawn from this chart, Republicans are the largest group among those who answered only 0 and 1 questions correctly. The prevalent group varies considerably from 2 to 6 correct answers.
 
+#### Reading time for true and false, concordant and discordant headlines according to political affiliation
 ```{r}
-# class(dataset$T_dem_rt)
-
-#  p1 <- dataset %>%
-#   filter(pol_party == "democrat") %>%
-#   ggplot(aes(x = T_dem_rt)) +
-#   geom_histogram(binwidth = 0.5) +
-#   xlab("True, pro-liberal") +
-#   ylab("Count")
-# p1
-#  p1 <- ggplot(data = dataset, aes(x = T_dem_rt)) +
-#   geom_histogram(binwidth = 1) +
-#   xlab("True, pro-liberal") +
-#   ylab("Count") +
-#   facet_wrap("pol_party")
-#
-# p1
-
 p1 <- ggplot(dataset,aes(x=T_dem_rt)) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "blue", alpha = 0.5) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "red", alpha = 0.5) +
+    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "#277DA1", alpha = 0.5) +
+    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
   ylab("Count") +
   xlab("True Pro-Liberal") +
   xlim(0, 30) +
@@ -216,8 +307,8 @@ p1 <- ggplot(dataset,aes(x=T_dem_rt)) +
 p1
 
 p2 <- ggplot(dataset,aes(x=F_dem_rt)) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "blue", alpha = 0.5) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "red", alpha = 0.5) +
+    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "#277DA1", alpha = 0.5) +
+    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
   ylab("") +
   xlab("False Pro-Liberal") +
   xlim(0, 30) +
@@ -225,8 +316,8 @@ p2 <- ggplot(dataset,aes(x=F_dem_rt)) +
 p2
 
 p3 <- ggplot(dataset,aes(x=T_rep_rt)) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "blue", alpha = 0.5) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "red", alpha = 0.5) +
+    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "#277DA1", alpha = 0.5) +
+    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
   ylab("") +
   xlab("True Pro-Conservative") +
   xlim(0, 30) +
@@ -234,51 +325,64 @@ p3 <- ggplot(dataset,aes(x=T_rep_rt)) +
 p3
 
 p4 <- ggplot(dataset,aes(x=F_rep_rt)) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "blue", alpha = 0.5) +
-    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "red", alpha = 0.5) +
+    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "#277DA1", alpha = 0.5) +
+    geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
   ylab("") +
   xlab("False Pro-Conservative") +
   xlim(0, 30) +
   ylim(0, 80)
 p4
 
-# p2 <- ggplot(data = dataset, aes(x = F_dem_rt)) +
-#   geom_histogram(binwidth = 1) +
-#   xlab("False, pro-liberal") +
-#   ylab("")
-#
-# p3 <- ggplot(data = dataset, aes(x = T_rep_rt)) +
-#   geom_histogram(binwidth = 1) +
-#   xlab("True, pro-conservative") +
-#   ylab("")
-#
-# p4 <- ggplot(data = dataset, aes(x = F_rep_rt)) +
-#   geom_histogram(binwidth = 1) +
-#   xlab("False, pro-conservative") +
-#   ylab("")
-
-chart <- grid.arrange(p1, p2, p3, p4, ncol = 2, nrow = 2,
+chart <- grid.arrange(p1, p2, p3, p4,
+                      ncol = 2,
+                      nrow = 2,
              top = textGrob("Mean Reading Time vs Political Affiliation for True or False headlines"),
              bottom = textGrob("Reading time"))
 
 
 ```
+The charts above show the time spent by individuals reading headlines during the experiment. Each of its quadrants shows a combination between veracity of headlines and the headline's bias. One striking tendency shown by the chart are the peaks in counts for Republicans in each chart. For example, for true pro-liberal headlines, about 70 Republicans had about 2-minute reading time against about 18 Democrats in the same number of minutes. Similar trends can be found in other charts. Apparently, reading times for Democrats appear to be slightly more sparse than those for Republicans.
+It is also noteworthy that peaks for Democrats appear very early in the time count for all combinations (in all, the peaks appear at about 2 minutes). For Democrats, the distribution seem to be multimodal in true pro-conservative and false pro-liberal headlines.
+
 #### confirmation bias vs ideology
 ```{r}
 class(dataset$ideology)
 
 c1 <- ggplot(dataset,aes(x = ideology, y = confirmation_bias, color = ideology)) +
   geom_boxplot() +
-  geom_jitter(size = 0.3)
+  geom_jitter(size = 0.3)+
+  scale_x_discrete(labels=c("1" = "Extremely\nliberal",
+                            "2" = "",
+                            "3" = "",
+                            "4" = "",
+                            "5" = "",
+                            "6" = "",
+                            "7" = "Extremely\nconservative")) +
+    scale_color_manual(values = c("#277DA1",
+                               "#8C9ACC",
+                               "#95D1FF",
+                               "#EECDF1",
+                               "#F58CAD",
+                               "#FA6164",
+                               "#F94144")) +
+  theme_minimal()
 
 c2 <- ggplot(dataset,aes(x = pol_party, y = confirmation_bias, color = pol_party)) +
   geom_boxplot() +
-  geom_jitter(size = 0.3)
+  geom_jitter(size = 0.3) +
+  scale_x_discrete(labels=c("democrat" = "Democrat",
+                            "republican" = "Republican")) +
+  scale_color_manual(values=c("#277DA1",
+                             "#F94144")) +
+  theme_minimal()
 
-grid.arrange(c1, c2)
+grid.arrange(c1, c2,
+             ncol = 2)
 
 ```
-
+The chart shows the measure for confirmation bias (calculated as the total of concordant fact-checks minus discordant fact-checks) across ideologies and political affiliations.
+The largest difference among groups observed is between Democrats and Republicans. Here, again, there is a considerable difference in median score, which is higher among Democrats. This group, however shows the lowest minimum scores -- and the highest maximum scores. The median for Republicans is close to the first quartile of Democrats, and the third quartiles for both groups are similar.
+Looking at the scores across ideologies, we see that the lowest medians are located in the extremes (the two most extreme liberals and the three conservative groupings all share a median close to 0). The group with least variability is the one in the middle (classified in other analysis of the same dataset as conservative), which has a median very similar to its neighboring group of liberals.
 
 #### Correlation between reading times
 ```{r}
@@ -356,12 +460,14 @@ pairs(~ t_concordant_rt + f_concordant_rt + t_discordant_rt + f_discordant_rt,
 
 ```
 
-
+#### Overall reading time x Fact-checking attitude
 ```{r}
 dataset$fact_check_att
-ggplot(dataset, aes(fact_check_att, overall_rt)) +
+ggplot(dataset, aes(overall_rt, fact_check_att)) +
   geom_jitter(aes (color = pol_party))
 ```
+The chart above shows a scatter plot for overall reading time against fact-checking attitude, a measure of mean rating for three attitude toward fact-checkers questions. There is a visible concentration of observations in the top-right corner, apparently most pronounced among Republicans. In that corner are observations with low overall reading time and high fact-checking attitude. Accordingly, observations for Republicans are concentrated in the top half of the chart, whereas the ones for Democrats seem to be slightly more spread across the two halves.
+It is also remarkable that there is an apparent straight line for Democrats along about 4 minutes which could not be observed in the chart above that shows a segmentation by concordance with the headlines.
 
 #### Scatterplot reading time for concordant and discordant headlines
 ``` {r}
@@ -370,24 +476,90 @@ ggplot(data = dataset, aes(x = concordant_rt, y = discordant_rt)) +
   facet_grid(~ dataset$pol_party)
 
 ```
+These scatter plots show the relationship between two measures of reading time, for concordant headlines (pro-liberal for Democrats; pro-conservative for Republicans), and discordant headlines (pro-conservative for Democrats; pro-liberal for Republicans). An interesting aspect of this chart is that it is a way of measuring biases from individuals: in case of absence of biases, one could expect that reading times for both discordant and concordant headlines were positively correlated -- individuals would spend similar amounts of time in headlines, no matter if those are concordant or discordant. For both groups, the distributions seem to be positively correlated, however moderately. Also, the charts show slightly different relationships for Democrats and Republicans. 
+For Democrats, the bulk of observations is concentrated in the range below 20 seconds in each axis. Also, the correlation seems to be more accentuated in the bottom left of the chart, and points start to become more scattered above 10 seconds in each axis, following a less defined pattern from them on. 
+For Republicans, the bulk of observations lies in the region below 20 seconds for concordant headlines and in the vicinity of 10 seconds for discordant headlines. The points follow an even more nuanced relationship in comparison with that for Democrats, and the pattern of correlation is less pronounced.
+
 
 #### Ridgeline plot: AOT mean rating and correct CRT answers across ideologies
 ```{r}
 library(ggridges)
-p1 <- ggplot(dataset, aes(x = AOT, y = ideology)) +
-  geom_density_ridges()
-p2 <- ggplot(dataset, aes(x = CRT, y = ideology)) +
-  geom_density_ridges()
+# Split participants into two artificial categories representing their ideologies, 
+# according to the "ideology" variable. This split into only two categories will be 
+# useful for the group of charts below:
 
-p3 <- ggplot(dataset, aes(x = AOT, y = ideology)) +
+
+# dataset$ideology <- as.numeric(dataset$ideology)
+# dataset$id_group = ifelse(dataset$ideology <= 3, "Liberal", "Conservative")
+p1 <- ggplot(dataset, aes(x = AOT, y = ideology, fill = ideology, color = ideology)) +
   geom_density_ridges() +
-  facet_wrap(~pol_party)
+  scale_fill_manual(values = c("#277DA1",
+                               "#8C9ACC",
+                               "#95D1FF",
+                               "#EECDF1",
+                               "#F58CAD",
+                               "#FA6164",
+                               "#F94144")) +
+  scale_color_manual(values = c("#277DA1",
+                               "#8C9ACC",
+                               "#95D1FF",
+                               "#EECDF1",
+                               "#F58CAD",
+                               "#FA6164",
+                               "#F94144")) +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_y_discrete(labels=c("1" = "Extremely\nliberal",
+                            "2" = "",
+                            "3" = "",
+                            "4" = "",
+                            "5" = "",
+                            "6" = "",
+                            "7" = "Extremely\nconservative"))
 
-p4 <- ggplot(dataset, aes(x = CRT, y = ideology)) +
+# p2 <- ggplot(dataset, aes(x = CRT, y = ideology)) +
+#   geom_density_ridges()
+# 
+p3 <- c1 <- dataset %>%
+  filter(gender == "female" | gender == "male") %>% 
+  ggplot(aes(x = AOT, y = ideology, fill = ideology, color = ideology)) +
   geom_density_ridges() +
-  facet_wrap(~pol_party)
+  facet_wrap(~gender) +
+  scale_fill_manual(values = c("#277DA1",
+                               "#8C9ACC",
+                               "#95D1FF",
+                               "#EECDF1",
+                               "#F58CAD",
+                               "#FA6164",
+                               "#F94144")) +
+  scale_color_manual(values = c("#277DA1",
+                               "#8C9ACC",
+                               "#95D1FF",
+                               "#EECDF1",
+                               "#F58CAD",
+                               "#FA6164",
+                               "#F94144")) +
+  theme_minimal()  +
+  theme(legend.position = "none") +
+  scale_y_discrete(labels=c("1" = "Extremely\nliberal",
+                            "2" = "",
+                            "3" = "",
+                            "4" = "",
+                            "5" = "",
+                            "6" = "",
+                            "7" = "Extremely\nconservative"))
 
-grid.arrange(p1, p2, p3, p4,
-             ncol = 2,
-             nrow = 2)
+# p4 <- ggplot(dataset, aes(x = CRT, y = ideology)) +
+#   geom_density_ridges() +
+#   facet_wrap(~pol_party)
+
+grid.arrange(p1, p3)
 ```
+The grid of ridgeline plots shows comparisons for constructs Actively Open-Minded Thinking across levels of allegiance to ideologies and political party affinity. The top chart shows a unimodal distribution for almost all segments of ideology, in general, negatively skewed. This points to generally high scores in this 0-5 scale that is the mean score for 11 questions. One interesting exception is the level 3 (somewhere around "slightly liberal"). In that segment, the distribution is bimodal, with the highest peak around the score 4, and a lower peak around the score 3, a value for which there are very few observations in all other groups. Another very low score that is highlighted in the top chart is in the "extremely conservative" group, right below 2 points in the scale.
+When we look at differences across genders, it is possible to see both "mirrors" of those general trends and further nuances. For example, the general trend for extremely conservative is reflected among female respondents, but not among males. In the latter, the distribution presents at least three peaks (around 3, 3.6, and 4.5, although the two lower ones might reflect a rounding pattern). The general, bimodal pattern among the slightly liberal, by its turn, is also present in both genders. Other patterns appear among men that is not present among women or in the distribution for the whole sample. First, the bimodality of the most moderate group of conservatives (the fourth horizontal line in each plot). Among male, the highest peak in that group appears close to 4.5, above the peaks for female and for the whole sample (around 3.8), although the latter has a subtle bump to the right of its peak, which might be partially explained by the peak among mean. A similar pattern appears among the extremely liberal: apparently a lower peak towards the right end of the plot has a timid effect on the plot for the entire sample.
+
+
+
+References:
+Baron, J. (2019). Actively open-minded thinking in politics. Cognition, 188, 8-18.
+Frederick, S. (2005). Cognitive reflection and decision making. Journal of Economic perspectives, 19(4), 25-42.

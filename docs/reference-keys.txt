@@ -8,8 +8,12 @@ cleaning-transformation
 missing-value-analysis
 results
 political-concordance-vs-number-of-fact-checks
-age-vs-total-fact-checks-by-ideology-and-gender
+age-vs-total-fact-checks-by-ideology-and-gender---still-unsure-about-this-one
+actively-open-minded-thinking-and-political-affiliation
+reading-time-for-true-and-false-concordant-and-discordant-headlines-according-to-political-affiliation
+confirmation-bias-vs-ideology
 correlation-between-reading-times
+overall-reading-time-x-fact-checking-attitude
 scatterplot-reading-time-for-concordant-and-discordant-headlines
 ridgeline-plot-aot-mean-rating-and-correct-crt-answers-across-ideologies
 interactive-component
