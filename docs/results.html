@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -109,11 +173,11 @@
 <div id="results" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Results<a href="results.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <pre><code>## &#39;data.frame&#39;:    247 obs. of  53 variables:
-##  $ pol_party          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+##  $ pol_party          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
 ##    ..@ format.spss: chr &quot;F8.2&quot;
 ##    ..@ labels     : Named num  1 2
 ##    .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;democrat&quot; &quot;republican&quot;
-##  $ condition          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+##  $ condition          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
 ##    ..@ format.spss: chr &quot;F8.2&quot;
 ##    ..@ labels     : Named num  1 2
 ##    .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;easy&quot; &quot;difficult&quot;
@@ -127,7 +191,7 @@
 ##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
 ##  $ age                : num  34 66 57 25 26 54 30 41 46 27 ...
 ##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ gender             : dbl+lbl [1:247] 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+##  $ gender             : dbl+lbl [1:247] 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, ...
 ##    ..@ format.spss: chr &quot;F8.2&quot;
 ##    ..@ labels     : Named num  1 2 3 4
 ##    .. ..- attr(*, &quot;names&quot;)= chr [1:4] &quot;female&quot; &quot;male&quot; &quot;other&quot; &quot;decline&quot;
@@ -218,7 +282,7 @@
 ##  $ f_rt               : num  3.57 4.63 3.09 6.78 1.27 ...
 ##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
 ##   ..- attr(*, &quot;display_width&quot;)= int 10
-##  $ filter_$           : dbl+lbl [1:247] 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...
+##  $ filter_$           : dbl+lbl [1:247] 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
 ##    ..@ label        : chr &quot;condition=2 (FILTER)&quot;
 ##    ..@ format.spss  : chr &quot;F1.0&quot;
 ##    ..@ display_width: int 10
@@ -242,12 +306,12 @@
 ##  $ m_false_fc         : num  1.5 3.5 6 5.5 3 5.5 5 3.5 6 5.5 ...
 ##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
 ##   ..- attr(*, &quot;display_width&quot;)= int 12</code></pre>
-<pre><code>##  [1] pol_party           condition           t_concordant        f_concordant        t_discordant        f_discordant        age                 gender              ideology            CRT                
-## [11] AOT                 confirmation_bias   T_dem_rt            F_dem_rt            T_rep_rt            F_rep_rt            t_concordant_rt     f_concordant_rt     t_discordant_rt     f_discordant_rt    
-## [21] crt1                crt2                crt3                crt4                crt5                crt6                aot01               aot02               aot03               aot04              
-## [31] aot05               aot06               aot07               aot08               aot09               aot10               aot11               fc_att1             fc_att2             fc_att3            
-## [41] fact_check_att      total_fact_checks   concordant_rt       discordant_rt       t_rt                f_rt                filter_$            overall_rt          overall_fact_checks m_concordant_fc    
-## [51] m_discordant_fc     m_true_fc           m_false_fc         
+<pre><code>##  [1] pol_party           condition           t_concordant        f_concordant        t_discordant        f_discordant        age                 gender              ideology           
+## [10] CRT                 AOT                 confirmation_bias   T_dem_rt            F_dem_rt            T_rep_rt            F_rep_rt            t_concordant_rt     f_concordant_rt    
+## [19] t_discordant_rt     f_discordant_rt     crt1                crt2                crt3                crt4                crt5                crt6                aot01              
+## [28] aot02               aot03               aot04               aot05               aot06               aot07               aot08               aot09               aot10              
+## [37] aot11               fc_att1             fc_att2             fc_att3             fact_check_att      total_fact_checks   concordant_rt       discordant_rt       t_rt               
+## [46] f_rt                filter_$            overall_rt          overall_fact_checks m_concordant_fc     m_discordant_fc     m_true_fc           m_false_fc         
 ## &lt;0 rows&gt; (or 0-length row.names)</code></pre>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-12-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-12-3.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-12-4.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-12-5.png" width="672" /></p>
 <pre><code>## TableGrob (2 x 2) &quot;arrange&quot;: 4 grobs
@@ -264,34 +328,32 @@
 <h4><span class="header-section-number">4.0.0.2</span> Age vs Total Fact Checks by Ideology and Gender<a href="results.html#age-vs-total-fact-checks-by-ideology-and-gender" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre><code>##   [1] female  male    female  male    female  female  female  female  male    female  female  female  female  female  male    female  female  female  female  female  female  female  female  female  female 
-##  [26] female  female  female  male    male    female  female  male    female  female  female  male    male    male    female  female  male    female  female  female  female  male    male    female  female 
-##  [51] male    male    female  female  female  female  female  female  female  female  female  female  female  female  male    female  female  female  male    male    female  female  female  male    male   
-##  [76] female  female  female  male    female  male    female  male    male    female  female  male    female  female  female  female  male    male    male    female  female  female  male    female  female 
-## [101] female  female  male    female  female  female  female  female  female  male    female  female  female  male    female  female  female  male    female  female  female  female  female  male    female 
-## [126] female  female  male    female  male    female  female  female  male    female  female  male    female  female  female  male    female  male    female  male    male    female  female  male    male   
-## [151] male    other   male    male    female  female  female  female  female  female  female  male    female  male    decline male    male    female  female  decline male    female  female  female  female 
-## [176] female  male    male    male    female  female  female  male    female  female  female  female  female  female  male    male    female  female  female  male    female  female  female  female  female 
-## [201] male    male    female  male    male    male    female  male    male    male    female  female  male    male    female  female  male    male    female  female  female  female  female  female  female 
-## [226] female  male    male    female  male    female  female  male    female  female  female  male    female  female  female  female  female  male    female  female  male    female 
+<pre><code>##   [1] female  male    female  male    female  female  female  female  male    female  female  female  female  female  male    female  female  female  female  female  female  female  female  female 
+##  [25] female  female  female  female  male    male    female  female  male    female  female  female  male    male    male    female  female  male    female  female  female  female  male    male   
+##  [49] female  female  male    male    female  female  female  female  female  female  female  female  female  female  female  female  male    female  female  female  male    male    female  female 
+##  [73] female  male    male    female  female  female  male    female  male    female  male    male    female  female  male    female  female  female  female  male    male    male    female  female 
+##  [97] female  male    female  female  female  female  male    female  female  female  female  female  female  male    female  female  female  male    female  female  female  male    female  female 
+## [121] female  female  female  male    female  female  female  male    female  male    female  female  female  male    female  female  male    female  female  female  male    female  male    female 
+## [145] male    male    female  female  male    male    male    other   male    male    female  female  female  female  female  female  female  male    female  male    decline male    male    female 
+## [169] female  decline male    female  female  female  female  female  male    male    male    female  female  female  male    female  female  female  female  female  female  male    male    female 
+## [193] female  female  male    female  female  female  female  female  male    male    female  male    male    male    female  male    male    male    female  female  male    male    female  female 
+## [217] male    male    female  female  female  female  female  female  female  female  male    male    female  male    female  female  male    female  female  female  male    female  female  female 
+## [241] female  female  male    female  female  male    female 
 ## Levels: female male other decline</code></pre>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
-<pre><code>##   [1] 3.636364 4.727273 4.181818 4.181818 4.272727 4.363636 3.727273 4.090909 3.909091 4.090909 3.545455 4.090909 4.636364 3.545455 4.090909 4.545455 3.545455
-##  [18] 3.545455 3.909091 4.181818 3.636364 3.909091 4.636364 3.272727 4.727273 3.454545 4.181818 4.090909 3.727273 4.000000 4.000000 3.545455 4.000000 4.636364
-##  [35] 4.000000 4.272727 3.909091 4.727273 4.000000 4.363636 4.181818 3.454545 4.181818 4.545455 3.727273 3.727273 4.090909 4.000000 4.272727 4.454545 4.545455
-##  [52] 4.272727 3.818182 3.272727 4.272727 4.000000 4.090909 3.909091 4.181818 3.818182 4.545455 3.909091 4.545455 4.363636 3.545455 4.545455 3.727273 4.181818
-##  [69] 3.000000 3.636364 4.272727 3.636364 3.090909 3.272727 4.909091 3.545455 4.272727 4.272727 3.727273 3.727273 3.545455 3.272727 4.545455 4.545455 3.272727
-##  [86] 4.181818 3.363636 4.090909 3.000000 3.727273 3.363636 4.181818 3.545455 4.000000 3.727273 3.454545 3.363636 4.181818 4.272727 4.272727 3.818182 4.454545
-## [103] 4.363636 3.181818 3.727273 3.818182 4.090909 3.727273 4.090909 3.818182 3.636364 4.000000 3.090909 4.090909 4.000000 3.727273 4.636364 3.727273 3.909091
-## [120] 3.545455 4.000000 3.909091 3.636364 3.636364 4.090909 3.454545 4.636364 3.818182 2.909091 4.000000 4.000000 3.727273 3.636364 2.909091 4.727273 4.545455
-## [137] 4.454545 3.636364 4.727273 3.818182 4.727273 4.090909 4.181818 3.818182 4.090909 3.000000 4.181818 3.818182 4.000000 3.727273 4.636364 4.363636 3.727273
-## [154] 3.181818 3.454545 4.090909 4.090909 4.727273 4.000000 2.909091 3.545455 4.363636 3.272727 4.272727 4.909091 4.454545 3.090909 4.272727 3.818182 4.000000
-## [171] 3.727273 4.272727 4.363636 4.454545 4.363636 3.363636 4.090909 4.090909 4.818182 4.272727 4.090909 4.090909 4.545455 3.181818 4.727273 2.909091 3.272727
-## [188] 3.272727 5.000000 4.000000 3.727273 4.272727 3.272727 3.454545 4.000000 3.727273 3.600000 3.454545 3.818182 4.818182 4.090909 4.090909 4.272727 3.636364
-## [205] 3.909091 4.272727 4.090909 3.818182 4.000000 3.818182 3.545455 4.090909 3.400000 3.636364 3.300000 3.818182 4.000000 3.181818 3.818182 3.727273 4.000000
-## [222] 4.000000 3.272727 4.272727 4.636364 4.545455 3.727273 3.000000 1.909091 3.454545 3.545455 4.090909 3.181818 3.909091 3.363636 4.454545 3.727273 3.181818
-## [239] 3.272727 3.909091 4.000000 4.090909 3.818182 3.636364 3.636364 3.636364 3.909091
+<pre><code>##   [1] 3.636364 4.727273 4.181818 4.181818 4.272727 4.363636 3.727273 4.090909 3.909091 4.090909 3.545455 4.090909 4.636364 3.545455 4.090909 4.545455 3.545455 3.545455 3.909091 4.181818 3.636364 3.909091
+##  [23] 4.636364 3.272727 4.727273 3.454545 4.181818 4.090909 3.727273 4.000000 4.000000 3.545455 4.000000 4.636364 4.000000 4.272727 3.909091 4.727273 4.000000 4.363636 4.181818 3.454545 4.181818 4.545455
+##  [45] 3.727273 3.727273 4.090909 4.000000 4.272727 4.454545 4.545455 4.272727 3.818182 3.272727 4.272727 4.000000 4.090909 3.909091 4.181818 3.818182 4.545455 3.909091 4.545455 4.363636 3.545455 4.545455
+##  [67] 3.727273 4.181818 3.000000 3.636364 4.272727 3.636364 3.090909 3.272727 4.909091 3.545455 4.272727 4.272727 3.727273 3.727273 3.545455 3.272727 4.545455 4.545455 3.272727 4.181818 3.363636 4.090909
+##  [89] 3.000000 3.727273 3.363636 4.181818 3.545455 4.000000 3.727273 3.454545 3.363636 4.181818 4.272727 4.272727 3.818182 4.454545 4.363636 3.181818 3.727273 3.818182 4.090909 3.727273 4.090909 3.818182
+## [111] 3.636364 4.000000 3.090909 4.090909 4.000000 3.727273 4.636364 3.727273 3.909091 3.545455 4.000000 3.909091 3.636364 3.636364 4.090909 3.454545 4.636364 3.818182 2.909091 4.000000 4.000000 3.727273
+## [133] 3.636364 2.909091 4.727273 4.545455 4.454545 3.636364 4.727273 3.818182 4.727273 4.090909 4.181818 3.818182 4.090909 3.000000 4.181818 3.818182 4.000000 3.727273 4.636364 4.363636 3.727273 3.181818
+## [155] 3.454545 4.090909 4.090909 4.727273 4.000000 2.909091 3.545455 4.363636 3.272727 4.272727 4.909091 4.454545 3.090909 4.272727 3.818182 4.000000 3.727273 4.272727 4.363636 4.454545 4.363636 3.363636
+## [177] 4.090909 4.090909 4.818182 4.272727 4.090909 4.090909 4.545455 3.181818 4.727273 2.909091 3.272727 3.272727 5.000000 4.000000 3.727273 4.272727 3.272727 3.454545 4.000000 3.727273 3.600000 3.454545
+## [199] 3.818182 4.818182 4.090909 4.090909 4.272727 3.636364 3.909091 4.272727 4.090909 3.818182 4.000000 3.818182 3.545455 4.090909 3.400000 3.636364 3.300000 3.818182 4.000000 3.181818 3.818182 3.727273
+## [221] 4.000000 4.000000 3.272727 4.272727 4.636364 4.545455 3.727273 3.000000 1.909091 3.454545 3.545455 4.090909 3.181818 3.909091 3.363636 4.454545 3.727273 3.181818 3.272727 3.909091 4.000000 4.090909
+## [243] 3.818182 3.636364 3.636364 3.636364 3.909091
 ## attr(,&quot;format.spss&quot;)
 ## [1] &quot;F8.2&quot;</code></pre>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
@@ -306,21 +368,18 @@
 <h4><span class="header-section-number">4.0.0.3</span> Correlation between reading times<a href="results.html#correlation-between-reading-times" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-19-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-19-3.png" width="672" /></p>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-20-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-20-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-20-3.png" width="672" /></p>
-<pre><code>##   [1] 4.500000 6.000000 6.000000 6.666667 6.000000 6.666667 5.000000 6.000000 4.666667 2.666667 7.000000 4.333333 5.333333 7.000000 5.666667 5.333333 7.000000
-##  [18] 5.000000 5.666667 7.000000 6.000000 4.000000 6.000000 5.000000 6.333333 4.000000 6.333333 6.000000 4.666667 6.000000 5.000000 5.000000 6.000000 5.000000
-##  [35] 4.000000 6.333333 3.000000 7.000000 6.000000 5.666667 5.666667 5.333333 6.000000 6.000000 6.000000 5.666667 4.000000 3.333333 5.000000 6.000000 5.000000
-##  [52] 6.000000 4.666667 4.666667 5.000000 5.333333 6.333333 6.000000 4.333333 4.333333 7.000000 6.000000 5.333333 4.333333 1.666667 4.000000 3.666667 7.000000
-##  [69] 4.000000 2.000000 7.000000 2.333333 2.000000 4.666667 5.000000 6.000000 1.000000 5.333333 4.333333 7.000000 4.333333 4.000000 1.000000 4.000000 4.000000
-##  [86] 6.333333 5.333333 1.000000 5.333333 2.000000 5.333333 1.333333 4.333333 2.000000 2.000000 4.000000 3.666667 5.000000 1.666667 2.333333 3.000000 6.000000
-## [103] 4.666667 3.666667 1.000000 4.333333 3.333333 6.000000 3.333333 5.666667 1.333333 4.000000 4.000000 4.000000 1.000000 3.666667 1.000000 2.666667 6.000000
-## [120] 3.333333 3.666667 2.333333 3.666667 4.666667 4.333333 4.000000 5.333333 6.333333 5.000000 6.666667 4.333333 3.000000 6.000000 6.333333 7.000000 7.000000
-## [137] 7.000000 5.000000 6.000000 5.666667 6.000000 5.000000 5.666667 5.666667 6.000000 5.333333 4.333333 5.333333 6.333333 6.666667 4.333333 5.666667 6.333333
-## [154] 4.000000 6.000000 5.666667 6.000000 5.333333 6.000000 5.000000 5.000000 6.000000 5.666667 5.333333 6.000000 5.666667 4.666667 2.666667 5.000000 4.000000
-## [171] 6.666667 5.333333 6.000000 6.000000 7.000000 4.333333 6.000000 4.666667 6.000000 6.000000 5.000000 6.333333 6.333333 4.333333 5.666667 1.333333 1.666667
-## [188] 5.666667 5.666667 1.000000 5.666667 2.333333 1.000000 4.666667 1.333333 3.666667 3.333333 3.666667 6.000000 2.666667 1.000000 4.000000 1.000000 4.333333
-## [205] 4.000000 3.333333 1.000000 5.333333 4.333333 6.000000 4.000000 1.666667 4.333333 5.666667 2.333333 1.666667 3.000000 1.666667 6.333333 4.666667 6.000000
-## [222] 3.666667 6.000000 2.333333 1.000000 6.000000 4.000000 4.000000 5.000000 2.333333 5.000000 3.000000 4.000000 2.333333 4.000000 1.000000 5.000000 4.000000
-## [239] 1.000000 5.000000 7.000000 1.000000 4.666667 5.000000 4.000000 3.333333 2.000000
+<pre><code>##   [1] 4.500000 6.000000 6.000000 6.666667 6.000000 6.666667 5.000000 6.000000 4.666667 2.666667 7.000000 4.333333 5.333333 7.000000 5.666667 5.333333 7.000000 5.000000 5.666667 7.000000 6.000000 4.000000
+##  [23] 6.000000 5.000000 6.333333 4.000000 6.333333 6.000000 4.666667 6.000000 5.000000 5.000000 6.000000 5.000000 4.000000 6.333333 3.000000 7.000000 6.000000 5.666667 5.666667 5.333333 6.000000 6.000000
+##  [45] 6.000000 5.666667 4.000000 3.333333 5.000000 6.000000 5.000000 6.000000 4.666667 4.666667 5.000000 5.333333 6.333333 6.000000 4.333333 4.333333 7.000000 6.000000 5.333333 4.333333 1.666667 4.000000
+##  [67] 3.666667 7.000000 4.000000 2.000000 7.000000 2.333333 2.000000 4.666667 5.000000 6.000000 1.000000 5.333333 4.333333 7.000000 4.333333 4.000000 1.000000 4.000000 4.000000 6.333333 5.333333 1.000000
+##  [89] 5.333333 2.000000 5.333333 1.333333 4.333333 2.000000 2.000000 4.000000 3.666667 5.000000 1.666667 2.333333 3.000000 6.000000 4.666667 3.666667 1.000000 4.333333 3.333333 6.000000 3.333333 5.666667
+## [111] 1.333333 4.000000 4.000000 4.000000 1.000000 3.666667 1.000000 2.666667 6.000000 3.333333 3.666667 2.333333 3.666667 4.666667 4.333333 4.000000 5.333333 6.333333 5.000000 6.666667 4.333333 3.000000
+## [133] 6.000000 6.333333 7.000000 7.000000 7.000000 5.000000 6.000000 5.666667 6.000000 5.000000 5.666667 5.666667 6.000000 5.333333 4.333333 5.333333 6.333333 6.666667 4.333333 5.666667 6.333333 4.000000
+## [155] 6.000000 5.666667 6.000000 5.333333 6.000000 5.000000 5.000000 6.000000 5.666667 5.333333 6.000000 5.666667 4.666667 2.666667 5.000000 4.000000 6.666667 5.333333 6.000000 6.000000 7.000000 4.333333
+## [177] 6.000000 4.666667 6.000000 6.000000 5.000000 6.333333 6.333333 4.333333 5.666667 1.333333 1.666667 5.666667 5.666667 1.000000 5.666667 2.333333 1.000000 4.666667 1.333333 3.666667 3.333333 3.666667
+## [199] 6.000000 2.666667 1.000000 4.000000 1.000000 4.333333 4.000000 3.333333 1.000000 5.333333 4.333333 6.000000 4.000000 1.666667 4.333333 5.666667 2.333333 1.666667 3.000000 1.666667 6.333333 4.666667
+## [221] 6.000000 3.666667 6.000000 2.333333 1.000000 6.000000 4.000000 4.000000 5.000000 2.333333 5.000000 3.000000 4.000000 2.333333 4.000000 1.000000 5.000000 4.000000 1.000000 5.000000 7.000000 1.000000
+## [243] 4.666667 5.000000 4.000000 3.333333 2.000000
 ## attr(,&quot;format.spss&quot;)
 ## [1] &quot;F8.2&quot;
 ## attr(,&quot;display_width&quot;)

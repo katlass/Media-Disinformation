@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -116,11 +180,11 @@ The dataset has 247 observations of 53 variables, all of which are “double.”
 One possible challenge that may arise as we start the exploratory data analysis is the transformation of time values form doubles to time and date format. In terms of missing values, although the data set seems to have been pre-processed in order to exclude NAs, there are 4 observations that contain missing values (1 NA each).</p>
 <pre><code>## [1] 247  53</code></pre>
 <pre><code>## tibble [247 × 53] (S3: tbl_df/tbl/data.frame)
-##  $ pol_party          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+##  $ pol_party          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
 ##    ..@ format.spss: chr &quot;F8.2&quot;
 ##    ..@ labels     : Named num [1:2] 1 2
 ##    .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;democrat&quot; &quot;republican&quot;
-##  $ condition          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+##  $ condition          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
 ##    ..@ format.spss: chr &quot;F8.2&quot;
 ##    ..@ labels     : Named num [1:2] 1 2
 ##    .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;easy&quot; &quot;difficult&quot;
@@ -134,7 +198,7 @@ One possible challenge that may arise as we start the exploratory data analysis 
 ##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
 ##  $ age                : num [1:247] 34 66 57 25 26 54 30 41 46 27 ...
 ##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ gender             : dbl+lbl [1:247] 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+##  $ gender             : dbl+lbl [1:247] 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, ...
 ##    ..@ format.spss: chr &quot;F8.2&quot;
 ##    ..@ labels     : Named num [1:4] 1 2 3 4
 ##    .. ..- attr(*, &quot;names&quot;)= chr [1:4] &quot;female&quot; &quot;male&quot; &quot;other&quot; &quot;decline&quot;
@@ -225,7 +289,7 @@ One possible challenge that may arise as we start the exploratory data analysis 
 ##  $ f_rt               : num [1:247] 3.57 4.63 3.09 6.78 1.27 ...
 ##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
 ##   ..- attr(*, &quot;display_width&quot;)= int 10
-##  $ filter_$           : dbl+lbl [1:247] 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0...
+##  $ filter_$           : dbl+lbl [1:247] 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
 ##    ..@ label        : chr &quot;condition=2 (FILTER)&quot;
 ##    ..@ format.spss  : chr &quot;F1.0&quot;
 ##    ..@ display_width: int 10
@@ -319,6 +383,16 @@ One possible challenge that may arise as we start the exploratory data analysis 
 </div>
 <div id="cleaning-transformation" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Cleaning / transformation<a href="data.html#cleaning-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Add participant id</span></span>
+<span id="cb5-2"><a href="data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>participant_id<span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dataset)</span>
+<span id="cb5-3"><a href="data.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Define a factor converter to convert numeric columns to factors</span></span>
+<span id="cb5-4"><a href="data.html#cb5-4" aria-hidden="true" tabindex="-1"></a>factor_converter <span class="ot">=</span> <span class="cf">function</span>(data,columns){</span>
+<span id="cb5-5"><a href="data.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (x <span class="cf">in</span> columns){</span>
+<span id="cb5-6"><a href="data.html#cb5-6" aria-hidden="true" tabindex="-1"></a>    data[,x]<span class="ot">=</span><span class="fu">as.factor</span>(data[,x])</span>
+<span id="cb5-7"><a href="data.html#cb5-7" aria-hidden="true" tabindex="-1"></a>    data[,x]<span class="ot">=</span><span class="fu">addNA</span>(data[,x])</span>
+<span id="cb5-8"><a href="data.html#cb5-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-9"><a href="data.html#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(data)</span>
+<span id="cb5-10"><a href="data.html#cb5-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>First, the data set is loaded in using the package Haven’s read_sav() function, as the data is stored as a .SAV file. This type of file is outputted by the application SPSS. It is then converted to a data frame for easier use. The authors of this study clearly spent time preparing their data for publishing and little transformation was needed. Upon examination, there are many categorical variables which have already been modified to be numeric, ordinal variables. However, they are still numeric and plotting in ggplot2 often requires ordinal variables to be in factor form. As such, many columns will need to be converted to factors. This is done with a custom function factor_converter() which takes columns and a data set as a inputs and creates factor level variables, including an NA factor. One option to explore is modifying some of these ordinal variables to be binary, as using ordinal scale on data that shouldn’t be ranked can obscure true relationships. Given this data relates to individual participants and their responses in the study, a new variable participant_id has been added to the data set to uniquely identify each participant. This allowed us to track whether any anomalies were related to specific individuals. For now, this allows us to move straight into exploratory data analysis.</p>
 </div>
 <div id="missing-value-analysis" class="section level2 hasAnchor" number="3.3">
@@ -326,29 +400,27 @@ One possible challenge that may arise as we start the exploratory data analysis 
 <p>The authors mention that missing values have been removed prior to the data being made publicly available. However, there do seem to be a few missing observations present in the data.</p>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>After finding and selecting all columns that have missing values, we show below only the participants and columns that contained missing values to see if any were in common:</p>
-<pre><code>##   participant_id aot01 aot04 aot09 fc_att3
-## 1              1     4     4     4      NA
-## 2            197     3     4    NA       3
-## 3            213    NA     4     2       5
-## 4            215     4    NA     2       3</code></pre>
-<p>Now we look to investigate whether there were any similarities among these four participants:</p>
-<pre><code>## # A tibble: 4 × 11
-##   participant_id aot01 aot04 aot09 fc_att3 gender     pol_party      ideology condition       age   AOT
-##            &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl+lbl&gt;  &lt;dbl+lbl&gt;         &lt;dbl&gt; &lt;dbl+lbl&gt;     &lt;dbl&gt; &lt;dbl&gt;
-## 1              1     4     4     4      NA 1 [female] 1 [democrat]          2 1 [easy]         34  3.64
-## 2            197     3     4    NA       3 1 [female] 2 [republican]        7 2 [difficult]    69  3.6 
-## 3            213    NA     4     2       5 2 [male]   2 [republican]        5 2 [difficult]    26  3.4 
-## 4            215     4    NA     2       3 1 [female] 2 [republican]        7 2 [difficult]    77  3.3</code></pre>
 <p>Variables:</p>
-<p>AOT: mean rating for 11 actively open-minding thinking questions (possible range of 1-5)<br />
-fact_check_att: mean rating for three attitude toward fact-checkers questions (possible range of 1-7)<br />
-fc_att3: response to the third item on the attitudes toward fact-checkers scale<br />
+<p>aot: mean rating for 11 actively open-minding thinking questions (possible range of 1-5)<br />
+aaf: mean rating for three attitude toward fact-checkers questions (possible range of 1-7)<br />
+fc_att3: response to the third item on the attitudes toward fact-checkers scale (possible range of 1-7)<br />
 aot01: response to the first item on the actively open-minded thinking scale (1-5)<br />
 aot04: response to the fourth item on the actively open-minded thinking scale (1-5)<br />
 aot09: response to the nineth item on the actively open-minded thinking scale (1-5)<br />
 </p>
-<p>There seems to be little in common among the four participants on first glance. However, all four score roughly a 3.5 on the AOT mean rating for 11 actively open minded thinking questions. Considering the scale goes up to only five, this means these participants were on the higher end in terms of their willingness to explore alternate ways of thinking. Considering aot01, aot04, and aot09 are all scores for questions intended to judge a participants open minded thinking, one theory could be that these participants believed the question was neutral, it was outside of their realm of knowledge, or they just couldn’t think of black and white answer so they left it blank. But the fact that all three missing aot particpants are republican, with two having the highest ideology rating of seven meaning they are extremely conservative (participants 197 and 215), gives rise to a few theories of why this occurred. Perhaps a question was asked that disagreed with them morally, such as abortion or the death penalty. This may have led them to give no response to this question. This theory can better be confirmed by the fact that participant 215 was not very open minded in regards to the ninth question, aot09, and only scored a 2 out of 5. Participant 197 chose not to answer this question at all. Both also scored relatively low on questions intended to gauge the participants attitudes towards fact checkers, 2 and 3 out of 7, so maybe they felt uncomfortable sharing their views with the the proctor. Another idea could be that these three participants simply had a hard time answering these questions because the fact checking conditions were difficult (condition = 2). This ma have made them more guarded in terms of their willingness to answer these type of questions. As for participant 1, she is a democrat who is extremely liberal with an ideology score of 2, with one being extremely liberal and seven being extremely conservative. fc_att3 was one of the questions given to participants to gauge their attitudes toward fact checkers. Overall, participant 1 scored relatively high in terms of her attitude toward fact checkers, 4.3/7. So it seems that overall she felt positively about fact checkers, but maybe considering she’s extremely liberal, she didn’t feel that question was appropriate. All four are still valid participants to include in the study considering all other questions were answered, so it makes sense that the authors left them in.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre><code>##  participant_id aot01 aot04 aot09 fc_att3
+##               1     4     4     4      NA
+##             197     3     4    NA       3
+##             213    NA     4     2       5
+##             215     4    NA     2       3</code></pre>
+<p>Now we look to investigate whether there were any similarities among these four participants:</p>
+<pre><code>##   id aot01 aot04 aot09 fc_att3 gender  pol_party ideology condition age  aot  aaf
+##    1     4     4     4      NA female   democrat        2      easy  34 3.64 4.50
+##  197     3     4    NA       3 female republican        7 difficult  69 3.60 3.33
+##  213    NA     4     2       5   male republican        5 difficult  26 3.40 4.33
+##  215     4    NA     2       3 female republican        7 difficult  77 3.30 2.33</code></pre>
+<p>There seems to be little in common among the four participants at first glance. However, all four score roughly a 3.5 on the AOT mean rating for 11 actively open minded thinking questions. Considering the scale goes up to only five, this means these participants were on the higher end in terms of their willingness to explore alternate ways of thinking. Considering aot01, aot04, and aot09 are all scores for questions intended to judge a participants open minded thinking, one theory could be that these participants believed the question was neutral, it was outside of their realm of knowledge, or they just couldn’t think of black and white answer so they left it blank. But the fact that all three missing aot particpants are republican, with two having the highest ideology rating of seven meaning they are extremely conservative (participants 197 and 215), gives rise to a few theories of why this occurred. Perhaps a question was asked that disagreed with them morally, such as abortion or the death penalty. This may have led them to give no response to this question. This theory can better be confirmed by the fact that participant 215 was not very open minded in regards to the ninth question, aot09, and only scored a 2 out of 5. Participant 197 chose not to answer this question at all. Both also scored relatively low on questions intended to gauge the participants attitudes towards fact checkers, 2 and 3 out of 7, so maybe they felt uncomfortable sharing their views with the the proctor. Another idea could be that these three participants simply had a hard time answering these questions because the fact checking conditions were difficult. This may have made them more guarded in terms of their willingness to answer these type of questions. As for participant 1, she is a democrat who is extremely liberal with an ideology score of 2, with one being extremely liberal and seven being extremely conservative. fc_att3 was one of the questions given to participants to gauge their attitudes toward fact checkers. Overall, participant 1 scored relatively high in terms of her attitude toward fact checkers, with an aaf of 4.5/7. So it seems that overall she felt positively about fact checkers, but maybe considering she’s extremely liberal, she didn’t feel that question was appropriate. All four are still valid participants to include in the study considering all other questions were answered, so it makes sense that the authors left them in.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-9-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
 
 </div>
 </div>
