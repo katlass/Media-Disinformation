@@ -148,7 +148,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#cleaning-transformation"><i class="fa fa-check"></i><b>3.2</b> Cleaning / transformation</a></li>
 <li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#missing-value-analysis"><i class="fa fa-check"></i><b>3.3</b> Missing value analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#overview-of-respondents"><i class="fa fa-check"></i><b>4.1</b> Overview of respondents</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#political-concordance-vs-number-of-fact-checks"><i class="fa fa-check"></i><b>4.2</b> Political Concordance vs Number of Fact-checks</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#total-number-of-fact-checks"><i class="fa fa-check"></i><b>4.3</b> Total Number of Fact Checks</a></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#actively-open-minded-thinking-and-political-affiliation"><i class="fa fa-check"></i><b>4.4</b> Actively Open-minded Thinking and Political Affiliation</a></li>
+<li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#cognitive-reflection-test-scores"><i class="fa fa-check"></i><b>4.5</b> Cognitive Reflection Test Scores</a></li>
+<li class="chapter" data-level="4.6" data-path="results.html"><a href="results.html#reading-time-for-true-and-false-concordant-and-discordant-headlines-according-to-political-affiliation"><i class="fa fa-check"></i><b>4.6</b> Reading time for true and false, concordant and discordant headlines according to political affiliation</a></li>
+<li class="chapter" data-level="4.7" data-path="results.html"><a href="results.html#confirmation-bias-across-ideologies-and-political-party-affiliation"><i class="fa fa-check"></i><b>4.7</b> Confirmation Bias across Ideologies and Political Party Affiliation</a></li>
+<li class="chapter" data-level="4.8" data-path="results.html"><a href="results.html#fact-checking-attitude-and-overall-reading-time"><i class="fa fa-check"></i><b>4.8</b> Fact-checking Attitude and Overall Reading Time</a></li>
+<li class="chapter" data-level="4.9" data-path="results.html"><a href="results.html#reading-time-for-concordant-and-discordant-headlines"><i class="fa fa-check"></i><b>4.9</b> Reading time for concordant and discordant headlines</a></li>
+<li class="chapter" data-level="4.10" data-path="results.html"><a href="results.html#actively-open-minded-thinking-mean-rating-across-ideologies"><i class="fa fa-check"></i><b>4.10</b> Actively Open-minded Thinking Mean Rating across Ideologies</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
 <li class="divider"></li>
@@ -172,310 +184,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="results" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Results<a href="results.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<pre><code>## &#39;data.frame&#39;:    247 obs. of  53 variables:
-##  $ pol_party          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
-##    ..@ format.spss: chr &quot;F8.2&quot;
-##    ..@ labels     : Named num  1 2
-##    .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;democrat&quot; &quot;republican&quot;
-##  $ condition          : dbl+lbl [1:247] 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
-##    ..@ format.spss: chr &quot;F8.2&quot;
-##    ..@ labels     : Named num  1 2
-##    .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;easy&quot; &quot;difficult&quot;
-##  $ t_concordant       : num  0 3 6 5 3 6 5 6 5 6 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ f_concordant       : num  3 4 6 5 1 6 5 5 6 6 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ t_discordant       : num  1 2 6 6 1 5 6 3 6 2 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ f_discordant       : num  0 3 6 6 5 5 5 2 6 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ age                : num  34 66 57 25 26 54 30 41 46 27 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ gender             : dbl+lbl [1:247] 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, ...
-##    ..@ format.spss: chr &quot;F8.2&quot;
-##    ..@ labels     : Named num  1 2 3 4
-##    .. ..- attr(*, &quot;names&quot;)= chr [1:4] &quot;female&quot; &quot;male&quot; &quot;other&quot; &quot;decline&quot;
-##  $ ideology           : num  2 1 3 2 2 2 3 1 3 2 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ CRT                : num  4 6 4 2 6 6 6 5 3 2 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ AOT                : num  3.64 4.73 4.18 4.18 4.27 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ confirmation_bias  : num  2 2 0 -2 -2 2 -1 6 -1 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 19
-##  $ T_dem_rt           : num  2.03 3.98 2.56 6.09 1.36 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ F_dem_rt           : num  4.46 5.12 4.32 5.17 0.9 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ T_rep_rt           : num  5.27 5.05 5.7 6.53 1.72 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ F_rep_rt           : num  2.69 4.14 1.86 8.39 1.64 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ t_concordant_rt    : num  2.03 3.98 2.56 6.09 1.36 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 17
-##  $ f_concordant_rt    : num  4.46 5.12 4.32 5.17 0.9 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 17
-##  $ t_discordant_rt    : num  5.27 5.05 5.7 6.53 1.72 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 17
-##  $ f_discordant_rt    : num  2.69 4.14 1.86 8.39 1.64 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 17
-##  $ crt1               : num  0 1 0 0 1 1 1 0 0 0 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ crt2               : num  1 1 0 0 1 1 1 1 0 0 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ crt3               : num  0 1 1 1 1 1 1 1 0 0 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ crt4               : num  1 1 1 0 1 1 1 1 1 0 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ crt5               : num  1 1 1 1 1 1 1 1 1 1 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ crt6               : num  1 1 1 0 1 1 1 1 1 1 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot01              : num  4 5 4 5 4 5 4 3 4 3 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot02              : num  4 5 5 5 5 5 4 5 4 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot03              : num  2 5 5 1 4 5 4 4 4 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot04              : num  4 5 5 4 5 5 4 4 3 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot05              : num  4 5 5 5 5 5 5 5 5 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot06              : num  4 5 5 5 4 4 3 4 4 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot07              : num  4 5 4 5 4 5 4 5 5 1 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot08              : num  4 5 2 5 4 5 5 5 4 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot09              : num  4 3 2 5 4 3 3 2 3 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot10              : num  3 5 5 2 4 3 2 4 3 2 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ aot11              : num  4 5 5 5 5 4 4 5 5 5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ fc_att1            : num  5 6 6 7 6 7 5 6 5 3 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ fc_att2            : num  4 6 6 6 6 6 5 6 4 4 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ fc_att3            : num  NA 6 6 7 6 7 5 6 5 1 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##  $ fact_check_att     : num  4.5 6 6 6.67 6 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 16
-##  $ total_fact_checks  : num  4 12 24 22 10 22 21 16 23 19 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 19
-##  $ concordant_rt      : num  3.24 4.55 3.44 5.63 1.13 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 15
-##  $ discordant_rt      : num  3.98 4.59 3.78 7.46 1.68 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 15
-##  $ t_rt               : num  3.65 4.51 4.13 6.31 1.54 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 10
-##  $ f_rt               : num  3.57 4.63 3.09 6.78 1.27 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 10
-##  $ filter_$           : dbl+lbl [1:247] 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...
-##    ..@ label        : chr &quot;condition=2 (FILTER)&quot;
-##    ..@ format.spss  : chr &quot;F1.0&quot;
-##    ..@ display_width: int 10
-##    ..@ labels       : Named num  0 1
-##    .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;Not Selected&quot; &quot;Selected&quot;
-##  $ overall_rt         : num  3.61 4.57 3.61 6.54 1.41 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 12
-##  $ overall_fact_checks: num  1 3 6 5.5 2.5 5.5 5.25 4 5.75 4.75 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 21
-##  $ m_concordant_fc    : num  1.5 3.5 6 5 2 6 5 5.5 5.5 6 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 17
-##  $ m_discordant_fc    : num  0.5 2.5 6 6 3 5 5.5 2.5 6 3.5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 17
-##  $ m_true_fc          : num  0.5 2.5 6 5.5 2 5.5 5.5 4.5 5.5 4 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 11
-##  $ m_false_fc         : num  1.5 3.5 6 5.5 3 5.5 5 3.5 6 5.5 ...
-##   ..- attr(*, &quot;format.spss&quot;)= chr &quot;F8.2&quot;
-##   ..- attr(*, &quot;display_width&quot;)= int 12</code></pre>
-<pre><code>##    pol_party condition t_concordant f_concordant t_discordant f_discordant age gender ideology CRT      AOT confirmation_bias  T_dem_rt   F_dem_rt   T_rep_rt F_rep_rt t_concordant_rt f_concordant_rt
-## 1   democrat      easy            0            3            1            0  34 female        2   4 3.636364                 2  2.026167  4.4591667  5.2726667 2.690667        2.026167       4.4591667
-## 2   democrat      easy            3            4            2            3  66   male        1   6 4.727273                 2  3.976500  5.1240000  5.0466667 4.138167        3.976500       5.1240000
-## 3   democrat      easy            6            6            6            6  57 female        3   4 4.181818                 0  2.558333  4.3243333  5.7008333 1.857167        2.558333       4.3243333
-## 4   democrat      easy            5            5            6            6  25   male        2   2 4.181818                -2  6.085333  5.1735000  6.5280000 8.390167        6.085333       5.1735000
-## 5   democrat      easy            3            1            1            5  26 female        2   6 4.272727                -2  1.360167  0.8996667  1.7166667 1.643667        1.360167       0.8996667
-## 6   democrat      easy            6            6            5            5  54 female        2   6 4.363636                 2  7.773000  6.2090000  9.1043333 7.372333        7.773000       6.2090000
-## 7   democrat      easy            5            5            6            5  30 female        3   6 3.727273                -1  2.978000 21.3276667 33.8591667 6.110667        2.978000      21.3276667
-## 8   democrat      easy            6            5            3            2  41 female        1   5 4.090909                 6  8.322167  6.4758333  6.3695000 4.743167        8.322167       6.4758333
-## 9   democrat      easy            5            6            6            6  46   male        3   3 3.909091                -1 18.659000 13.9726667 12.4866667 9.538000       18.659000      13.9726667
-## 10  democrat      easy            6            6            2            5  27 female        2   2 4.090909                 5  3.223333 10.2253333  2.5366667 8.879833        3.223333      10.2253333
-## 11  democrat      easy            4            6            2            6  45 female        2   6 3.545455                 2  7.519167  3.7208333  1.8916667 4.838500        7.519167       3.7208333
-## 12  democrat      easy            0            0            0            0  53 female        2   6 4.090909                 0  4.894500  2.7070000  2.4085000 3.757333        4.894500       2.7070000
-## 13  democrat      easy            5            4            2            3  49 female        2   4 4.636364                 4 15.157500  8.2391667  9.1766667 8.370167       15.157500       8.2391667
-## 14  democrat      easy            4            5            0            1  48 female        1   4 3.545455                 8  3.618500  2.9255000  1.5596667 2.084000        3.618500       2.9255000
-## 15  democrat      easy            6            6            6            6  23   male        1   6 4.090909                 0  2.441667  3.9888333  3.7563333 3.159333        2.441667       3.9888333
-## 16  democrat      easy            6            4            6            5  32 female        2   6 4.545455                -1  2.621667  2.1918333  7.8890000 2.088667        2.621667       2.1918333
-## 17  democrat      easy            3            2            0            1  38 female        1   1 3.545455                 4  1.898000  1.2693333  0.9348333 1.108000        1.898000       1.2693333
-## 18  democrat      easy            2            5            3            3  40 female        2   5 3.545455                 1  3.135500  1.8145000  1.4498333 3.003000        3.135500       1.8145000
-##    t_discordant_rt f_discordant_rt crt1 crt2 crt3 crt4 crt5 crt6 aot01 aot02 aot03 aot04 aot05 aot06 aot07 aot08 aot09 aot10 aot11 fc_att1 fc_att2 fc_att3 fact_check_att total_fact_checks concordant_rt
-## 1        5.2726667        2.690667    0    1    0    1    1    1     4     4     2     4     4     4     4     4     4     3     4       5       4      NA       4.500000                 4      3.242667
-## 2        5.0466667        4.138167    1    1    1    1    1    1     5     5     5     5     5     5     5     5     3     5     5       6       6       6       6.000000                12      4.550250
-## 3        5.7008333        1.857167    0    0    1    1    1    1     4     5     5     5     5     5     4     2     2     5     5       6       6       6       6.000000                24      3.441333
-## 4        6.5280000        8.390167    0    0    1    0    1    0     5     5     1     4     5     5     5     5     5     2     5       7       6       7       6.666667                22      5.629417
-## 5        1.7166667        1.643667    1    1    1    1    1    1     4     5     4     5     5     4     4     4     4     4     5       6       6       6       6.000000                10      1.129917
-## 6        9.1043333        7.372333    1    1    1    1    1    1     5     5     5     5     5     4     5     5     3     3     4       7       6       7       6.666667                22      6.991000
-## 7       33.8591667        6.110667    1    1    1    1    1    1     4     4     4     4     5     3     4     5     3     2     4       5       5       5       5.000000                21     12.152833
-## 8        6.3695000        4.743167    0    1    1    1    1    1     3     5     4     4     5     4     5     5     2     4     5       6       6       6       6.000000                16      7.399000
-## 9       12.4866667        9.538000    0    0    0    1    1    1     4     4     4     3     5     4     5     4     3     3     5       5       4       5       4.666667                23     16.315833
-## 10       2.5366667        8.879833    0    0    0    0    1    1     3     5     5     5     5     5     1     5     5     2     5       3       4       1       2.666667                19      6.724333
-## 11       1.8916667        4.838500    1    1    1    1    1    1     4     4     4     4     4     4     4     2     4     2     4       7       7       7       7.000000                18      5.620000
-## 12       2.4085000        3.757333    1    1    1    1    1    1     4     5     5     5     5     3     5     5     3     1     5       5       4       4       4.333333                 0      3.800750
-## 13       9.1766667        8.370167    0    1    1    1    1    0     4     5     5     5     5     5     5     5     4     4     5       6       4       6       5.333333                14     11.698333
-## 14       1.5596667        2.084000    0    0    1    1    1    1     3     4     4     3     5     3     4     3     3     4     4       7       7       7       7.000000                10      3.272000
-## 15       3.7563333        3.159333    1    1    1    1    1    1     3     5     5     5     5     5     5     3     2     4     4       7       3       7       5.666667                24      3.215250
-## 16       7.8890000        2.088667    1    1    1    1    1    1     3     5     5     4     5     5     5     5     4     5     5       6       5       5       5.333333                21      2.406750
-## 17       0.9348333        1.108000    0    0    0    0    0    1     1     5     3     3     5     3     5     3     4     4     4       7       7       7       7.000000                 6      1.583667
-## 18       1.4498333        3.003000    0    1    1    1    1    1     2     4     2     3     5     4     4     4     4     4     4       6       4       5       5.000000                13      2.475000
-##    discordant_rt      t_rt      f_rt filter_$ overall_rt overall_fact_checks m_concordant_fc m_discordant_fc m_true_fc m_false_fc
-## 1       3.981667  3.649417  3.574917        0   3.612167                1.00             1.5             0.5       0.5        1.5
-## 2       4.592417  4.511583  4.631083        0   4.571333                3.00             3.5             2.5       2.5        3.5
-## 3       3.779000  4.129583  3.090750        0   3.610167                6.00             6.0             6.0       6.0        6.0
-## 4       7.459083  6.306667  6.781833        0   6.544250                5.50             5.0             6.0       5.5        5.5
-## 5       1.680167  1.538417  1.271667        0   1.405042                2.50             2.0             3.0       2.0        3.0
-## 6       8.238333  8.438667  6.790667        0   7.614667                5.50             6.0             5.0       5.5        5.5
-## 7      19.984917 18.418583 13.719167        0  16.068875                5.25             5.0             5.5       5.5        5.0
-## 8       5.556333  7.345833  5.609500        0   6.477667                4.00             5.5             2.5       4.5        3.5
-## 9      11.012333 15.572833 11.755333        0  13.664083                5.75             5.5             6.0       5.5        6.0
-## 10      5.708250  2.880000  9.552583        0   6.216292                4.75             6.0             3.5       4.0        5.5
-## 11      3.365083  4.705417  4.279667        0   4.492542                4.50             5.0             4.0       3.0        6.0
-## 12      3.082917  3.651500  3.232167        0   3.441833                0.00             0.0             0.0       0.0        0.0
-## 13      8.773417 12.167083  8.304667        0  10.235875                3.50             4.5             2.5       3.5        3.5
-## 14      1.821833  2.589083  2.504750        0   2.546917                2.50             4.5             0.5       2.0        3.0
-## 15      3.457833  3.099000  3.574083        0   3.336542                6.00             6.0             6.0       6.0        6.0
-## 16      4.988833  5.255333  2.140250        0   3.697792                5.25             5.0             5.5       6.0        4.5
-## 17      1.021417  1.416417  1.188667        0   1.302542                1.50             2.5             0.5       1.5        1.5
-## 18      2.226417  2.292667  2.408750        0   2.350708                3.25             3.5             3.0       2.5        4.0
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 226 rows ]</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-12-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-12-3.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-12-4.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-12-5.png" width="672" />
-The charts above show that the sample is relatively balanced in terms of their political affiliation and ideology. About half of the sample identifies themselves as Democrats, half as Republicans. As for ideology, despite the difference in the extremes (the number of extremely liberals is about double that of extremely conservatives), the total numbers are rather similar at each side (124 to the side of liberals; 123 to the side of conservatives).
+<div id="overview-of-respondents" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Overview of respondents<a href="results.html#overview-of-respondents" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>The charts above show that the sample is relatively balanced in terms of their political affiliation and ideology. About half of the sample identifies themselves as Democrats, half as Republicans. As for ideology, despite the difference in the extremes (the number of extremely liberals is about double that of extremely conservatives), the total numbers are rather similar at each side (124 to the side of liberals; 123 to the side of conservatives).
 As for gender, we can see a large gap between female and male respondents (166 x 178, respectively). Respondents who chose “other” or opted to not disclose their genders account for a total of 3 individuals, and are not shown in this chart (even if those categories were “topcoded”, the height of the bars would be very low).
 The researchers also achieved an important symmetry between the two experimental conditions of fact-checking: 125 were assigned to “easy;” 122 to “difficult.”</p>
-<div id="political-concordance-vs-number-of-fact-checks" class="section level4 hasAnchor" number="4.0.0.1">
-<h4><span class="header-section-number">4.0.0.1</span> Political Concordance vs Number of Fact-checks<a href="results.html#political-concordance-vs-number-of-fact-checks" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-13-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-13-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-13-3.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-13-4.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-13-5.png" width="672" />
-The chart above shows the amount of fact-checks conducted by individuals according to their political affiliation: Republicans are in red, Democrats are in blue, and the colors have a level of transparency (alpha). Each of the individual charts refers to concordance or discordance between the information presented and the individual’s political perspective. Therefore, “True concordant” refers to information that is true and aligned with the respondent’s political perspective; “False concordant” refers to information that is false and concordant with the individual’s political perspective; the same logic applies to the other two categories.
+</div>
+<div id="political-concordance-vs-number-of-fact-checks" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Political Concordance vs Number of Fact-checks<a href="results.html#political-concordance-vs-number-of-fact-checks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>The chart above shows the amount of fact-checks conducted by individuals according to their political affiliation: Republicans are in red, Democrats are in blue, and the colors have a level of transparency (alpha). Each of the individual charts refers to concordance or discordance between the information presented and the individual’s political perspective. Therefore, “True concordant” refers to information that is true and aligned with the respondent’s political perspective; “False concordant” refers to information that is false and concordant with the individual’s political perspective; the same logic applies to the other two categories.
 Some of the charts show interesting patterns. For example, the top-right plot (True concordant) shows an intriguing symmetry. The number of Republicans who perform 0 fact check on true concordant news is higher than that of Democrats. The same is true for 1 and 2 fact-checks. The numbers are very similar on the other side of the chart, but now Democrats outnumber Republicans for 4, 5, and 6 fact-checks.
 An almost opposite pattern arises for False discordant headlines, although with less stark symmetry. Here, Republicans are also the most representative group performing 0 fact-checks, and Democrats are majority among those performing 6 fact-checks. The number of individuals are the same across political parties for 1 and 5 fact-checks, and Democrats are majority for 2 and 3 fact-checks.</p>
 </div>
-<div id="age-vs-total-fact-checks-by-ideology-and-gender---still-unsure-about-this-one" class="section level4 hasAnchor" number="4.0.0.2">
-<h4><span class="header-section-number">4.0.0.2</span> Age vs Total Fact Checks by Ideology and Gender - STILL UNSURE ABOUT THIS ONE<a href="results.html#age-vs-total-fact-checks-by-ideology-and-gender---still-unsure-about-this-one" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre><code>##   [1] female  male    female  male    female  female  female  female  male    female  female  female  female  female  male    female  female  female  female  female  female  female  female  female 
-##  [25] female  female  female  female  male    male    female  female  male    female  female  female  male    male    male    female  female  male    female  female  female  female  male    male   
-##  [49] female  female  male    male    female  female  female  female  female  female  female  female  female  female  female  female  male    female  female  female  male    male    female  female 
-##  [73] female  male    male    female  female  female  male    female  male    female  male    male    female  female  male    female  female  female  female  male    male    male    female  female 
-##  [97] female  male    female  female  female  female  male    female  female  female  female  female  female  male    female  female  female  male    female  female  female  male    female  female 
-## [121] female  female  female  male    female  female  female  male    female  male    female  female  female  male    female  female  male    female  female  female  male    female  male    female 
-## [145] male    male    female  female  male    male    male    other   male    male    female  female  female  female  female  female  female  male    female  male    decline male    male    female 
-## [169] female  decline male    female  female  female  female  female  male    male    male    female  female  female  male    female  female  female  female  female  female  male    male    female 
-## [193] female  female  male    female  female  female  female  female  male    male    female  male    male    male    female  male    male    male    female  female  male    male    female  female 
-## [217] male    male    female  female  female  female  female  female  female  female  male    male    female  male    female  female  male    female  female  female  male    female  female  female 
-## [241] female  female  male    female  female  male    female 
-## Levels: female male other decline</code></pre>
-<pre><code>## [1] &quot;factor&quot;</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-14-1.png" width="672" />
-The chart above shows that there are no salient trends in terms of fact-checking when comparing genders and ideologies.</p>
+<div id="total-number-of-fact-checks" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Total Number of Fact Checks<a href="results.html#total-number-of-fact-checks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>The chart above shows that there are no salient trends in terms of fact-checking when comparing ideologies. Different features have been tested for the visualization total fact-checking, and no salient pattern has been identified. For example, we attempted to include gender as a faceting dimension, and the chart did not reveal any relevant patterns, as seen below.</p>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
-<div id="actively-open-minded-thinking-and-political-affiliation" class="section level4 hasAnchor" number="4.0.0.3">
-<h4><span class="header-section-number">4.0.0.3</span> Actively open-minded thinking and political affiliation<a href="results.html#actively-open-minded-thinking-and-political-affiliation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<pre><code>##   [1] 3.636364 4.727273 4.181818 4.181818 4.272727 4.363636 3.727273 4.090909 3.909091 4.090909 3.545455 4.090909 4.636364 3.545455 4.090909 4.545455 3.545455 3.545455 3.909091 4.181818 3.636364 3.909091
-##  [23] 4.636364 3.272727 4.727273 3.454545 4.181818 4.090909 3.727273 4.000000 4.000000 3.545455 4.000000 4.636364 4.000000 4.272727 3.909091 4.727273 4.000000 4.363636 4.181818 3.454545 4.181818 4.545455
-##  [45] 3.727273 3.727273 4.090909 4.000000 4.272727 4.454545 4.545455 4.272727 3.818182 3.272727 4.272727 4.000000 4.090909 3.909091 4.181818 3.818182 4.545455 3.909091 4.545455 4.363636 3.545455 4.545455
-##  [67] 3.727273 4.181818 3.000000 3.636364 4.272727 3.636364 3.090909 3.272727 4.909091 3.545455 4.272727 4.272727 3.727273 3.727273 3.545455 3.272727 4.545455 4.545455 3.272727 4.181818 3.363636 4.090909
-##  [89] 3.000000 3.727273 3.363636 4.181818 3.545455 4.000000 3.727273 3.454545 3.363636 4.181818 4.272727 4.272727 3.818182 4.454545 4.363636 3.181818 3.727273 3.818182 4.090909 3.727273 4.090909 3.818182
-## [111] 3.636364 4.000000 3.090909 4.090909 4.000000 3.727273 4.636364 3.727273 3.909091 3.545455 4.000000 3.909091 3.636364 3.636364 4.090909 3.454545 4.636364 3.818182 2.909091 4.000000 4.000000 3.727273
-## [133] 3.636364 2.909091 4.727273 4.545455 4.454545 3.636364 4.727273 3.818182 4.727273 4.090909 4.181818 3.818182 4.090909 3.000000 4.181818 3.818182 4.000000 3.727273 4.636364 4.363636 3.727273 3.181818
-## [155] 3.454545 4.090909 4.090909 4.727273 4.000000 2.909091 3.545455 4.363636 3.272727 4.272727 4.909091 4.454545 3.090909 4.272727 3.818182 4.000000 3.727273 4.272727 4.363636 4.454545 4.363636 3.363636
-## [177] 4.090909 4.090909 4.818182 4.272727 4.090909 4.090909 4.545455 3.181818 4.727273 2.909091 3.272727 3.272727 5.000000 4.000000 3.727273 4.272727 3.272727 3.454545 4.000000 3.727273 3.600000 3.454545
-## [199] 3.818182 4.818182 4.090909 4.090909 4.272727 3.636364 3.909091 4.272727 4.090909 3.818182 4.000000 3.818182 3.545455 4.090909 3.400000 3.636364 3.300000 3.818182 4.000000 3.181818 3.818182 3.727273
-## [221] 4.000000 4.000000 3.272727 4.272727 4.636364 4.545455 3.727273 3.000000 1.909091 3.454545 3.545455 4.090909 3.181818 3.909091 3.363636 4.454545 3.727273 3.181818 3.272727 3.909091 4.000000 4.090909
-## [243] 3.818182 3.636364 3.636364 3.636364 3.909091
-## attr(,&quot;format.spss&quot;)
-## [1] &quot;F8.2&quot;</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-15-1.png" width="672" />
-The boxplots show the score for actively open-minded thinking – “a general prescriptive theory that defines a standard or norm for all thinking, with emphasis on its role in the judgment of the thinking of others, and in maintaining appropriate confidence” (Baron, 2019). The chart shows that the most sensitive difference in that measure appears when comparing male participants across political affiliations: the median score for Democrat men is above the third quartile for Republican men. It is also noteworthy that all quartiles for Republican men are below their counterparts for Democrat men, although the minimum and maximum in one group are not very distant to the same measures in the other.
+<div id="actively-open-minded-thinking-and-political-affiliation" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Actively Open-minded Thinking and Political Affiliation<a href="results.html#actively-open-minded-thinking-and-political-affiliation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>The boxplots show the score for actively open-minded thinking – “a general prescriptive theory that defines a standard or norm for all thinking, with emphasis on its role in the judgment of the thinking of others, and in maintaining appropriate confidence” (Baron, 2019). The chart shows that the most sensitive difference in that measure appears when comparing male participants across political affiliations: the median score for Democrat men is above the third quartile for Republican men. It is also noteworthy that all quartiles for Republican men are below their counterparts for Democrat men, although the minimum and maximum in one group are not very distant to the same measures in the other.
 Similarly, difference between quartiles also appear among women, and the median for female Democrats is very close to Republicans’ third quartile.
 The comparison between the same gender and across political parties does not show substantial differences. In the comparison across genders, it is important to note that the sample size for women is about double the size for men.</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-16-2.png" width="672" /></p>
-<p>The double decker chart shows the total number of items responded correctly in the CRT scale (“Cognitive Reflection Test,” Frederick, 2005). This test was originally employed as an alternative to IQ tests in the contexts of business and economics, but has been adopted by many scholars investigating political motivations of misinformation in the past years.The width of “spines” in the chart points to a tendency of increase in size of the groups for higher numbers of correct answers. This is evident, for example, by the width of the spine for 6 correct answers. That is, when grouped by the number of correct answers, the largest segment is the one with participants who answered all questions correctly.
+</div>
+<div id="cognitive-reflection-test-scores" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Cognitive Reflection Test Scores<a href="results.html#cognitive-reflection-test-scores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>The doubledecker chart shows the total number of items responded correctly in the CRT scale (“Cognitive Reflection Test,” Frederick, 2005). This test was originally employed as an alternative to IQ tests in the contexts of business and economics, but has been adopted by many scholars investigating political motivations of misinformation in the past years. The width of “spines” in the chart points to a tendency of increase in size of the groups for higher numbers of correct answers. This is evident, for example, by the width of the spine for 6 correct answers. That is, when grouped by the number of correct answers, the largest segment is the one with participants who answered all questions correctly.
 There is a fair amount of variance in terms of affiliation to political parties across numbers of correct answers, except in the lower end, where Republicans prevail in this specific sample. Although no conclusive evidence can be drawn from this chart, Republicans are the largest group among those who answered only 0 and 1 questions correctly. The prevalent group varies considerably from 2 to 6 correct answers.</p>
 </div>
-<div id="reading-time-for-true-and-false-concordant-and-discordant-headlines-according-to-political-affiliation" class="section level4 hasAnchor" number="4.0.0.4">
-<h4><span class="header-section-number">4.0.0.4</span> Reading time for true and false, concordant and discordant headlines according to political affiliation<a href="results.html#reading-time-for-true-and-false-concordant-and-discordant-headlines-according-to-political-affiliation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-17-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-17-3.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-17-4.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-17-5.png" width="672" />
-The charts above show the time spent by individuals reading headlines during the experiment. Each of its quadrants shows a combination between veracity of headlines and the headline’s bias. One striking tendency shown by the chart are the peaks in counts for Republicans in each chart. For example, for true pro-liberal headlines, about 70 Republicans had about 2-minute reading time against about 18 Democrats in the same number of minutes. Similar trends can be found in other charts. Apparently, reading times for Democrats appear to be slightly more sparse than those for Republicans.
+<div id="reading-time-for-true-and-false-concordant-and-discordant-headlines-according-to-political-affiliation" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Reading time for true and false, concordant and discordant headlines according to political affiliation<a href="results.html#reading-time-for-true-and-false-concordant-and-discordant-headlines-according-to-political-affiliation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>The charts above show the time spent by individuals reading headlines during the experiment. Each of its quadrants shows a combination between veracity of headlines and the headline’s bias. One striking tendency shown by the chart are the peaks in counts for Republicans in each chart. For example, for true pro-liberal headlines, about 70 Republicans had about 2-minute reading time against about 18 Democrats in the same number of minutes. Similar trends can be found in other charts. Apparently, reading times for Democrats appear to be slightly more sparse than those for Republicans.
 It is also noteworthy that peaks for Democrats appear very early in the time count for all combinations (in all, the peaks appear at about 2 minutes). For Democrats, the distribution seem to be multimodal in true pro-conservative and false pro-liberal headlines.</p>
 </div>
-<div id="confirmation-bias-vs-ideology" class="section level4 hasAnchor" number="4.0.0.5">
-<h4><span class="header-section-number">4.0.0.5</span> confirmation bias vs ideology<a href="results.html#confirmation-bias-vs-ideology" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<pre><code>## [1] &quot;factor&quot;</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-18-1.png" width="672" />
-The chart shows the measure for confirmation bias (calculated as the total of concordant fact-checks minus discordant fact-checks) across ideologies and political affiliations.
+<div id="confirmation-bias-across-ideologies-and-political-party-affiliation" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Confirmation Bias across Ideologies and Political Party Affiliation<a href="results.html#confirmation-bias-across-ideologies-and-political-party-affiliation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>The chart shows the measure for confirmation bias (calculated as the total of concordant fact-checks minus discordant fact-checks) across ideologies and political affiliations.
 The largest difference among groups observed is between Democrats and Republicans. Here, again, there is a considerable difference in median score, which is higher among Democrats. This group, however shows the lowest minimum scores – and the highest maximum scores. The median for Republicans is close to the first quartile of Democrats, and the third quartiles for both groups are similar.
 Looking at the scores across ideologies, we see that the lowest medians are located in the extremes (the two most extreme liberals and the three conservative groupings all share a median close to 0). The group with least variability is the one in the middle (classified in other analysis of the same dataset as conservative), which has a median very similar to its neighboring group of liberals.</p>
 </div>
-<div id="correlation-between-reading-times" class="section level4 hasAnchor" number="4.0.0.6">
-<h4><span class="header-section-number">4.0.0.6</span> Correlation between reading times<a href="results.html#correlation-between-reading-times" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-19-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-19-3.png" width="672" /></p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-20-1.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-20-2.png" width="672" /><img src="finalproj_files/figure-html/unnamed-chunk-20-3.png" width="672" /></p>
-</div>
-<div id="overall-reading-time-x-fact-checking-attitude" class="section level4 hasAnchor" number="4.0.0.7">
-<h4><span class="header-section-number">4.0.0.7</span> Overall reading time x Fact-checking attitude<a href="results.html#overall-reading-time-x-fact-checking-attitude" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<pre><code>##   [1] 4.500000 6.000000 6.000000 6.666667 6.000000 6.666667 5.000000 6.000000 4.666667 2.666667 7.000000 4.333333 5.333333 7.000000 5.666667 5.333333 7.000000 5.000000 5.666667 7.000000 6.000000 4.000000
-##  [23] 6.000000 5.000000 6.333333 4.000000 6.333333 6.000000 4.666667 6.000000 5.000000 5.000000 6.000000 5.000000 4.000000 6.333333 3.000000 7.000000 6.000000 5.666667 5.666667 5.333333 6.000000 6.000000
-##  [45] 6.000000 5.666667 4.000000 3.333333 5.000000 6.000000 5.000000 6.000000 4.666667 4.666667 5.000000 5.333333 6.333333 6.000000 4.333333 4.333333 7.000000 6.000000 5.333333 4.333333 1.666667 4.000000
-##  [67] 3.666667 7.000000 4.000000 2.000000 7.000000 2.333333 2.000000 4.666667 5.000000 6.000000 1.000000 5.333333 4.333333 7.000000 4.333333 4.000000 1.000000 4.000000 4.000000 6.333333 5.333333 1.000000
-##  [89] 5.333333 2.000000 5.333333 1.333333 4.333333 2.000000 2.000000 4.000000 3.666667 5.000000 1.666667 2.333333 3.000000 6.000000 4.666667 3.666667 1.000000 4.333333 3.333333 6.000000 3.333333 5.666667
-## [111] 1.333333 4.000000 4.000000 4.000000 1.000000 3.666667 1.000000 2.666667 6.000000 3.333333 3.666667 2.333333 3.666667 4.666667 4.333333 4.000000 5.333333 6.333333 5.000000 6.666667 4.333333 3.000000
-## [133] 6.000000 6.333333 7.000000 7.000000 7.000000 5.000000 6.000000 5.666667 6.000000 5.000000 5.666667 5.666667 6.000000 5.333333 4.333333 5.333333 6.333333 6.666667 4.333333 5.666667 6.333333 4.000000
-## [155] 6.000000 5.666667 6.000000 5.333333 6.000000 5.000000 5.000000 6.000000 5.666667 5.333333 6.000000 5.666667 4.666667 2.666667 5.000000 4.000000 6.666667 5.333333 6.000000 6.000000 7.000000 4.333333
-## [177] 6.000000 4.666667 6.000000 6.000000 5.000000 6.333333 6.333333 4.333333 5.666667 1.333333 1.666667 5.666667 5.666667 1.000000 5.666667 2.333333 1.000000 4.666667 1.333333 3.666667 3.333333 3.666667
-## [199] 6.000000 2.666667 1.000000 4.000000 1.000000 4.333333 4.000000 3.333333 1.000000 5.333333 4.333333 6.000000 4.000000 1.666667 4.333333 5.666667 2.333333 1.666667 3.000000 1.666667 6.333333 4.666667
-## [221] 6.000000 3.666667 6.000000 2.333333 1.000000 6.000000 4.000000 4.000000 5.000000 2.333333 5.000000 3.000000 4.000000 2.333333 4.000000 1.000000 5.000000 4.000000 1.000000 5.000000 7.000000 1.000000
-## [243] 4.666667 5.000000 4.000000 3.333333 2.000000
-## attr(,&quot;format.spss&quot;)
-## [1] &quot;F8.2&quot;
-## attr(,&quot;display_width&quot;)
-## [1] 16</code></pre>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" />
-The chart above shows a scatter plot for overall reading time against fact-checking attitude, a measure of mean rating for three attitude toward fact-checkers questions. There is a visible concentration of observations in the top-right corner, apparently most pronounced among Republicans. In that corner are observations with low overall reading time and high fact-checking attitude. Accordingly, observations for Republicans are concentrated in the top half of the chart, whereas the ones for Democrats seem to be slightly more spread across the two halves.
+<div id="fact-checking-attitude-and-overall-reading-time" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Fact-checking Attitude and Overall Reading Time<a href="results.html#fact-checking-attitude-and-overall-reading-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<pre><code>## List of 1
+##  $ legend.position: chr &quot;none&quot;
+##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;theme&quot; &quot;gg&quot;
+##  - attr(*, &quot;complete&quot;)= logi FALSE
+##  - attr(*, &quot;validate&quot;)= logi TRUE</code></pre>
+<p>The chart above shows a scatter plot for overall reading time against fact-checking attitude, a measure of mean rating for three attitude toward fact-checkers questions. There is a visible concentration of observations in the top-right corner, apparently most pronounced among Republicans. In that corner are observations with low overall reading time and high fact-checking attitude. Accordingly, observations for Republicans are concentrated in the top half of the chart, whereas the ones for Democrats seem to be slightly more spread across the two halves.
 It is also remarkable that there is an apparent straight line for Democrats along about 4 minutes which could not be observed in the chart above that shows a segmentation by concordance with the headlines.</p>
 </div>
-<div id="scatterplot-reading-time-for-concordant-and-discordant-headlines" class="section level4 hasAnchor" number="4.0.0.8">
-<h4><span class="header-section-number">4.0.0.8</span> Scatterplot reading time for concordant and discordant headlines<a href="results.html#scatterplot-reading-time-for-concordant-and-discordant-headlines" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-22-1.png" width="672" />
-These scatter plots show the relationship between two measures of reading time, for concordant headlines (pro-liberal for Democrats; pro-conservative for Republicans), and discordant headlines (pro-conservative for Democrats; pro-liberal for Republicans). An interesting aspect of this chart is that it is a way of measuring biases from individuals: in case of absence of biases, one could expect that reading times for both discordant and concordant headlines were positively correlated – individuals would spend similar amounts of time in headlines, no matter if those are concordant or discordant. For both groups, the distributions seem to be positively correlated, however moderately. Also, the charts show slightly different relationships for Democrats and Republicans.
+<div id="reading-time-for-concordant-and-discordant-headlines" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> Reading time for concordant and discordant headlines<a href="results.html#reading-time-for-concordant-and-discordant-headlines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>These scatter plots show the relationship between two measures of reading time, for concordant headlines (pro-liberal for Democrats; pro-conservative for Republicans), and discordant headlines (pro-conservative for Democrats; pro-liberal for Republicans). An interesting aspect of this chart is that it is a way of measuring biases from individuals: in case of absence of biases, one could expect that reading times for both discordant and concordant headlines were positively correlated – individuals would spend similar amounts of time in headlines, no matter if those are concordant or discordant. For both groups, the distributions seem to be positively correlated, however moderately. Also, the charts show slightly different relationships for Democrats and Republicans.
 For Democrats, the bulk of observations is concentrated in the range below 20 seconds in each axis. Also, the correlation seems to be more accentuated in the bottom left of the chart, and points start to become more scattered above 10 seconds in each axis, following a less defined pattern from them on.
 For Republicans, the bulk of observations lies in the region below 20 seconds for concordant headlines and in the vicinity of 10 seconds for discordant headlines. The points follow an even more nuanced relationship in comparison with that for Democrats, and the pattern of correlation is less pronounced.</p>
 </div>
-<div id="ridgeline-plot-aot-mean-rating-and-correct-crt-answers-across-ideologies" class="section level4 hasAnchor" number="4.0.0.9">
-<h4><span class="header-section-number">4.0.0.9</span> Ridgeline plot: AOT mean rating and correct CRT answers across ideologies<a href="results.html#ridgeline-plot-aot-mean-rating-and-correct-crt-answers-across-ideologies" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="672" />
-The grid of ridgeline plots shows comparisons for constructs Actively Open-Minded Thinking across levels of allegiance to ideologies and political party affinity. The top chart shows a unimodal distribution for almost all segments of ideology, in general, negatively skewed. This points to generally high scores in this 0-5 scale that is the mean score for 11 questions. One interesting exception is the level 3 (somewhere around “slightly liberal”). In that segment, the distribution is bimodal, with the highest peak around the score 4, and a lower peak around the score 3, a value for which there are very few observations in all other groups. Another very low score that is highlighted in the top chart is in the “extremely conservative” group, right below 2 points in the scale.
-When we look at differences across genders, it is possible to see both “mirrors” of those general trends and further nuances. For example, the general trend for extremely conservative is reflected among female respondents, but not among males. In the latter, the distribution presents at least three peaks (around 3, 3.6, and 4.5, although the two lower ones might reflect a rounding pattern). The general, bimodal pattern among the slightly liberal, by its turn, is also present in both genders. Other patterns appear among men that is not present among women or in the distribution for the whole sample. First, the bimodality of the most moderate group of conservatives (the fourth horizontal line in each plot). Among male, the highest peak in that group appears close to 4.5, above the peaks for female and for the whole sample (around 3.8), although the latter has a subtle bump to the right of its peak, which might be partially explained by the peak among mean. A similar pattern appears among the extremely liberal: apparently a lower peak towards the right end of the plot has a timid effect on the plot for the entire sample.</p>
+<div id="actively-open-minded-thinking-mean-rating-across-ideologies" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Actively Open-minded Thinking Mean Rating across Ideologies<a href="results.html#actively-open-minded-thinking-mean-rating-across-ideologies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>The grid of ridgeline plots shows comparisons for constructs Actively Open-Minded Thinking across levels of allegiance to ideologies and political party affinity. The top chart shows a unimodal distribution for almost all segments of ideology, in general, negatively skewed. This points to generally high scores in this 0-5 scale that is the mean score for 11 questions. One interesting exception is the level 3 (somewhere around “slightly liberal”). In that segment, the distribution is bimodal, with the highest peak around the score 4, and a lower peak around the score 3, a value for which there are very few observations in all other groups. Another very low score that is highlighted in the top chart is in the “extremely conservative” group, right below 2 points in the scale.</p>
+<p>When we look at differences across genders, it is possible to see both “mirrors” of those general trends and further nuances. For example, the general trend for extremely conservative is reflected among female respondents, but not among males. In the latter, the distribution presents at least three peaks (around 3, 3.6, and 4.5, although the two lower ones might reflect a rounding pattern). The general, bimodal pattern among the slightly liberal, by its turn, is also present in both genders. Other patterns appear among men that is not present among women or in the distribution for the whole sample. First, the bimodality of the most moderate group of conservatives (the fourth horizontal line in each plot). Among male, the highest peak in that group appears close to 4.5, above the peaks for female and for the whole sample (around 3.8), although the latter has a subtle bump to the right of its peak, which might be partially explained by the peak among mean. A similar pattern appears among the extremely liberal: apparently a lower peak towards the right end of the plot has a timid effect on the plot for the entire sample.</p>
 <p>References:
-Baron, J. (2019). Actively open-minded thinking in politics. Cognition, 188, 8-18.
-Frederick, S. (2005). Cognitive reflection and decision making. Journal of Economic perspectives, 19(4), 25-42.</p>
+Baron, J. (2019). Actively open-minded thinking in politics. Cognition, 188, 8-18.</p>
+<p>Frederick, S. (2005). Cognitive reflection and decision making. Journal of Economic perspectives, 19(4), 25-42.</p>
 
 </div>
 </div>
