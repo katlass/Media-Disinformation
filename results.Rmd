@@ -1,22 +1,18 @@
 # Results
 
 ```{r echo=FALSE}
-# install.packages("hexbin")
-# install.packages('evaluate')
 library(markdown)
 library(rmarkdown)
 library(haven)
 library(tidyverse)
 library(gridExtra)
-# install.packages("wesanderson")
-library(wesanderson)
-# install.packages("hrbrthemes")
-library(hrbrthemes) # for plot themes
+library(hrbrthemes)
 library(ggplot2)
 library(grid)
-# install.packages("gridtext")
 library(gridtext)
 library(ggridges)
+library(gridExtra)
+
 dataset = as.data.frame(read_sav("fake_news_confirmation_bias_x2.sav"))
 ```
 
@@ -29,11 +25,11 @@ dataset$condition <- haven::as_factor(dataset$condition)
 
 c1 <- dataset %>%
   filter(gender == "female" | gender == "male") %>% 
-  ggplot(aes(gender, fill = gender)) +
+  ggplot(aes(gender)) +
   geom_bar() +
-  scale_fill_manual(
-    values = c("#F3722C",
-               "#43AA8B")) +
+  # scale_fill_manual(
+  #   values = c("grey60",
+  #              "grey60")) +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5)) +
   labs(title = "Gender") +
@@ -79,10 +75,10 @@ c3 <- ggplot(dataset, aes(ideology, fill = ideology), color = "white") +
                             "6" = "",
                             "7" = "Extremely\nconservative"))
 
-c4 <- ggplot(dataset, aes(condition, fill = condition)) +
+c4 <- ggplot(dataset, aes(condition)) +
   geom_bar() +
-  scale_fill_manual(values = c("#90BE6D",
-                               "#F9844A")) +
+  # scale_fill_manual(values = c("#90BE6D",
+  #                              "#F9844A")) +
   theme_minimal()  +
   theme(plot.title = element_text(hjust = 0.5)) +
   labs(title = "Experimental fact-checking condition") +
@@ -93,8 +89,8 @@ c4 <- ggplot(dataset, aes(condition, fill = condition)) +
                             "difficult" = "Difficult"))
 
 grid.arrange(c1, c2, c3, c4, nrow = 2,
-             top = textGrob("Overview of respondents",
-                            gp=gpar(fontsize=20)))
+             top = textGrob("Overview of Respondents",
+                            gp=gpar(fontsize=15)))
 
 
 ```
@@ -106,10 +102,6 @@ The researchers also achieved an important symmetry between the two experimental
 
 ## Political Concordance vs Number of Fact-checks
 ```{r}
-library(ggplot2)
-library(gridExtra)
-library(grid)
-
 p1 <- ggplot(dataset,aes(x = t_concordant)) +
     geom_bar(data=subset(dataset, pol_party == 'democrat'), fill = "#277DA1", alpha = 0.8) +
     geom_bar(data=subset(dataset, pol_party == 'republican'), fill = "#F94144", alpha = 0.5) +
@@ -135,6 +127,7 @@ p3 <- ggplot(dataset,aes(x = t_discordant)) +
     geom_bar(data=subset(dataset, pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
   labs(title = "True Discordant") +
   xlab("") +
+  ylab("Count") +
   ylab("") +
   ylim(0, 35) +
   theme_minimal()
@@ -151,7 +144,7 @@ p4 <- ggplot(dataset,aes(x = f_discordant)) +
 grid.arrange(p1, p2, p3, p4,
              ncol = 2,
              nrow = 2,
-             top = textGrob("Political concordance and total number of fact-checks", gp=gpar(fontsize=20)),
+             top = textGrob("Political Concordance and Total Number of Fact-checks", gp=gpar(fontsize=15)),
              bottom = textGrob("Number of Fact-checks"))
 
 
@@ -177,7 +170,7 @@ dataset %>%
                                "#F94144")) +
   theme_minimal() +
   theme(plot.title = element_text(hjust = 0.5)) +
-  labs(title = "Number of fact-checks by ideology") +
+  labs(title = "Number of Fact-checks by Ideology") +
   ylab("Total fact checks") +
   xlab("Ideology") +
   scale_x_discrete(labels=c("1" = "Extremely\nliberal",
@@ -202,7 +195,7 @@ dataset %>%
   filter(gender == "male" | gender == "female") %>%
   ggplot(aes(x = age, y = total_fact_checks, color = ideology)) +
   geom_jitter(width = 0.2) +
-  facet_wrap("gender", labeller = as_labeller(genders))+
+  facet_wrap("gender", labeller = as_labeller(genders) )+
   scale_color_manual(values = c("#277DA1",
                                "#8C9ACC",
                                "#95D1FF",
@@ -219,10 +212,11 @@ dataset %>%
                             "7" = "Extremely\nconservative")) +
   theme_minimal()  +
   theme(plot.title = element_text(hjust = 0.5)) +
-  labs(title = "Number of fact-checks by gender and ideology") +
+  labs(title = "Number of Fact-checks by Gender and Ideology") +
   ylab("Total fact checks") +
   xlab("Age") +
-  scale_x_continuous(breaks = scales::pretty_breaks(n = 5))
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 5)) +
+  labs(colour = "Ideology")
 ```
 
 ## Actively Open-minded Thinking and Political Affiliation
@@ -231,13 +225,13 @@ dataset %>%
   filter(gender == "female" | gender == "male") %>%
   ggplot(aes(x = pol_party, y = AOT, color = pol_party)) +
   geom_boxplot() +
-  labs(title = "Actively open-minded thinking vs political party") +
+  labs(title = "Actively Open-minded Thinking vs Political Party") +
   geom_jitter(size = 0.3, height = 0.2, width = 0.1) +
   facet_grid(~ gender, labeller = as_labeller(genders)) +
   theme_minimal()  +
   theme(plot.title = element_text(hjust = 0.5)) +
-  labs(title = "Actively open-minded thinking vs political party and gender") +
-  ylab("Actively open-minded thinking") +
+  labs(title = "Actively Open-minded Thinking vs Political Party and Gender") +
+  ylab("Actively Open-minded Thinking") +
   xlab("") +
   scale_x_discrete(labels = c("democrat" = "Democrat",
                             "republican" = "Republican")) +
@@ -253,15 +247,14 @@ The comparison between the same gender and across political parties does not sho
 ## Cognitive Reflection Test Scores
 ```{r}
 library(vcd)
-doubledecker(dataset$pol_party ~ dataset$CRT, data = dataset,
-             gp = gpar(fill = c("#277DA1", "#F94144")))
+doubledecker(pol_party ~ CRT, data = dataset, labeling=TRUE, margins=c(3,3), gp = gpar(fill = c("#277DA1", "#F94144")))
 
 ```
 
 The doubledecker chart shows the total number of items responded correctly in the CRT scale ("Cognitive Reflection Test," Frederick, 2005). This test was originally employed as an alternative to IQ tests in the contexts of business and economics, but has been adopted by many scholars investigating political motivations of misinformation in the past years. The width of "spines" in the chart points to a tendency of increase in size of the groups for higher numbers of correct answers. This is evident, for example, by the width of the spine for 6 correct answers. That is, when grouped by the number of correct answers, the largest segment is the one with participants who answered all questions correctly.
 There is a fair amount of variance in terms of affiliation to political parties across numbers of correct answers, except in the lower end, where Republicans prevail in this specific sample. Although no conclusive evidence can be drawn from this chart, Republicans are the largest group among those who answered only 0 and 1 questions correctly. The prevalent group varies considerably from 2 to 6 correct answers.
 
-## Reading time for true and false, concordant and discordant headlines according to political affiliation
+## Reading Time for True and False, Concordant and Discordant Headlines according to Political Affiliation
 ```{r}
 p1 <- ggplot(dataset,aes(x=T_dem_rt)) +
     geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'),fill = "#277DA1", alpha = 0.5) +
@@ -270,7 +263,7 @@ p1 <- ggplot(dataset,aes(x=T_dem_rt)) +
   xlab("True Pro-Liberal") +
   xlim(0, 30) +
   ylim(0, 80)
-
+p1
 p2 <- ggplot(dataset,aes(x=F_dem_rt)) +
     geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'democrat'), fill = "#277DA1", alpha = 0.5) +
     geom_histogram(binwidth = 0.5, data=subset(dataset,pol_party == 'republican'),fill = "#F94144", alpha = 0.5) +
@@ -300,6 +293,7 @@ chart <- grid.arrange(p1, p2, p3, p4,
                       nrow = 2,
              top = textGrob("Mean Reading Time vs Political Affiliation for True or False headlines"),
              bottom = textGrob("Reading time"))
+
 ```
 
 The charts above show the time spent by individuals reading headlines during the experiment. Each of its quadrants shows a combination between veracity of headlines and the headline's bias. One striking tendency shown by the chart are the peaks in counts for Republicans in each chart. For example, for true pro-liberal headlines, about 70 Republicans had about 2-minute reading time against about 18 Democrats in the same number of minutes. Similar trends can be found in other charts. Apparently, reading times for Democrats appear to be slightly more sparse than those for Republicans.
@@ -325,7 +319,11 @@ c1 <- ggplot(dataset,aes(x = ideology, y = confirmation_bias, color = ideology))
                                "#FA6164",
                                "#F94144")) +
   theme_minimal() +
-  theme(legend.position="none")
+  theme(legend.position="none") +
+  ylab("Confirmation bias") +
+  xlab("Ideology") +
+  labs(title = "Confirmation bias and ideology") +
+  theme(plot.title = element_text(hjust = 0.5)) 
 
 c2 <- ggplot(dataset,aes(x = pol_party, y = confirmation_bias, color = pol_party)) +
   geom_boxplot() +
@@ -335,11 +333,14 @@ c2 <- ggplot(dataset,aes(x = pol_party, y = confirmation_bias, color = pol_party
   scale_color_manual(values=c("#277DA1",
                              "#F94144")) +
   theme_minimal() +
-  theme(legend.position="none")
+  theme(legend.position="none")+
+  ylab("Confirmation bias") +
+  xlab("Political Party") +
+  labs(title = "Confirmation bias and political party") +
+  theme(plot.title = element_text(hjust = 0.5)) 
 
 grid.arrange(c1, c2,
              ncol = 1)
-
 ```
 
 The chart shows the measure for confirmation bias (calculated as the total of concordant fact-checks minus discordant fact-checks) across ideologies and political affiliations.
@@ -358,8 +359,10 @@ ggplot(dataset, aes(overall_rt, fact_check_att)) +
   scale_x_discrete(labels=c("democrat" = "Democrat",
                             "republican" = "Republican")) +
   scale_color_manual(values=c("#277DA1",
-                             "#F94144")) 
-  theme(legend.position = "none")
+                             "#F94144"),
+                     labels = c("democrat" = "Democrat",
+                                "republican" = "Republican")) +
+  labs(colour = "Political Party")
   
 ```
 

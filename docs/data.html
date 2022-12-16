@@ -155,7 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#total-number-of-fact-checks"><i class="fa fa-check"></i><b>4.3</b> Total Number of Fact Checks</a></li>
 <li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#actively-open-minded-thinking-and-political-affiliation"><i class="fa fa-check"></i><b>4.4</b> Actively Open-minded Thinking and Political Affiliation</a></li>
 <li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#cognitive-reflection-test-scores"><i class="fa fa-check"></i><b>4.5</b> Cognitive Reflection Test Scores</a></li>
-<li class="chapter" data-level="4.6" data-path="results.html"><a href="results.html#reading-time-for-true-and-false-concordant-and-discordant-headlines-according-to-political-affiliation"><i class="fa fa-check"></i><b>4.6</b> Reading time for true and false, concordant and discordant headlines according to political affiliation</a></li>
+<li class="chapter" data-level="4.6" data-path="results.html"><a href="results.html#reading-time-for-true-and-false-concordant-and-discordant-headlines-according-to-political-affiliation"><i class="fa fa-check"></i><b>4.6</b> Reading Time for True and False, Concordant and Discordant Headlines according to Political Affiliation</a></li>
 <li class="chapter" data-level="4.7" data-path="results.html"><a href="results.html#confirmation-bias-across-ideologies-and-political-party-affiliation"><i class="fa fa-check"></i><b>4.7</b> Confirmation Bias across Ideologies and Political Party Affiliation</a></li>
 <li class="chapter" data-level="4.8" data-path="results.html"><a href="results.html#fact-checking-attitude-and-overall-reading-time"><i class="fa fa-check"></i><b>4.8</b> Fact-checking Attitude and Overall Reading Time</a></li>
 <li class="chapter" data-level="4.9" data-path="results.html"><a href="results.html#reading-time-for-concordant-and-discordant-headlines"><i class="fa fa-check"></i><b>4.9</b> Reading time for concordant and discordant headlines</a></li>
@@ -190,86 +190,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 This specific data set – <a href="https://osf.io/fqncj">the fake news and confirmation bias</a> – is part of the <a href="https://osf.io/e6jy4/">Confirmation bias in fact checking political claims research project</a>. There is a similar dataset in the same project, which is apparently a previous version of the one used in this project (suffixes x1 and x2, respectively. Although both datasets share the same variables, a few are present in one and not in the other. For example, “disconfirm_bias” is present in x1, but not in x2; the opposite is true for “ideology” and “condition” (referring to “fact-checking conditions”). More clarification was requested via email to the principal investigator, but we are assuming that x2 is a more refined version of x1, so we opted to use the former for our analysis.
 The dataset has 247 observations of 53 variables, all of which are “double.” However, the data dictionary indicates that many of those represent other types of data and have possibly been transformed by the authors before publishing the data set. For example, the variable <code>pol_party</code> originally has values “Democrat” and “Repubican,” which are now represented by 1 and 2, respectively; <code>gender</code> originally accepted values “female,” “male,” “other,” and “decline to state,” and now are coded from 1 to 4, in that order. Others are originally integers, for example, <code>t_concordant</code>, which represents “total number f fact-checks for true politically concordant headlines.” The same is true for the Likert-type scale variable <code>ideology</code>, whose rating ranges from 1 to 7, “from extremely liberal to extremely conservative.” A third class that was present in the original dataset was “time,” the case, for example, of <code>T_dem_rt</code> (“mean reading time for true pro-liberal headlines”). Lastly, there are 2 variables that gorup other variables: <code>CRT```` is the “total number of CRT items answered correctly” (0-6); and</code>AOT```, which is the mean of items in the “active open-minded thinking” (1-5).
 One possible challenge that may arise as we start the exploratory data analysis is the transformation of time values form doubles to time and date format. In terms of missing values, although the data set seems to have been pre-processed in order to exclude NAs, there are 4 observations that contain missing values (1 NA each).</p>
-<pre><code>##                                variable  class
-## pol_party                     pol_party double
-## condition                     condition double
-## t_concordant               t_concordant double
-## f_concordant               f_concordant double
-## t_discordant               t_discordant double
-## f_discordant               f_discordant double
-## age                                 age double
-## gender                           gender double
-## ideology                       ideology double
-## CRT                                 CRT double
-## AOT                                 AOT double
-## confirmation_bias     confirmation_bias double
-## T_dem_rt                       T_dem_rt double
-## F_dem_rt                       F_dem_rt double
-## T_rep_rt                       T_rep_rt double
-## F_rep_rt                       F_rep_rt double
-## t_concordant_rt         t_concordant_rt double
-## f_concordant_rt         f_concordant_rt double
-## t_discordant_rt         t_discordant_rt double
-## f_discordant_rt         f_discordant_rt double
-## crt1                               crt1 double
-## crt2                               crt2 double
-## crt3                               crt3 double
-## crt4                               crt4 double
-## crt5                               crt5 double
-## crt6                               crt6 double
-## aot01                             aot01 double
-## aot02                             aot02 double
-## aot03                             aot03 double
-## aot04                             aot04 double
-## aot05                             aot05 double
-## aot06                             aot06 double
-## aot07                             aot07 double
-## aot08                             aot08 double
-## aot09                             aot09 double
-## aot10                             aot10 double
-## aot11                             aot11 double
-## fc_att1                         fc_att1 double
-## fc_att2                         fc_att2 double
-## fc_att3                         fc_att3 double
-## fact_check_att           fact_check_att double
-## total_fact_checks     total_fact_checks double
-## concordant_rt             concordant_rt double
-## discordant_rt             discordant_rt double
-## t_rt                               t_rt double
-## f_rt                               f_rt double
-## filter_$                       filter_$ double
-## overall_rt                   overall_rt double
-## overall_fact_checks overall_fact_checks double
-## m_concordant_fc         m_concordant_fc double
-## m_discordant_fc         m_discordant_fc double
-## m_true_fc                     m_true_fc double
-## m_false_fc                   m_false_fc double</code></pre>
-<pre><code>## 
-##                 age                 AOT               aot01               aot02               aot03               aot04               aot05               aot06               aot07               aot08 
-##                   1                   1                   1                   1                   1                   1                   1                   1                   1                   1 
-##               aot09               aot10               aot11       concordant_rt           condition   confirmation_bias                 CRT                crt1                crt2                crt3 
-##                   1                   1                   1                   1                   1                   1                   1                   1                   1                   1 
-##                crt4                crt5                crt6       discordant_rt        f_concordant     f_concordant_rt            F_dem_rt        f_discordant     f_discordant_rt            F_rep_rt 
-##                   1                   1                   1                   1                   1                   1                   1                   1                   1                   1 
-##                f_rt      fact_check_att             fc_att1             fc_att2             fc_att3            filter_$              gender            ideology     m_concordant_fc     m_discordant_fc 
-##                   1                   1                   1                   1                   1                   1                   1                   1                   1                   1 
-##          m_false_fc           m_true_fc overall_fact_checks          overall_rt           pol_party        t_concordant     t_concordant_rt            T_dem_rt        t_discordant     t_discordant_rt 
-##                   1                   1                   1                   1                   1                   1                   1                   1                   1                   1 
-##            T_rep_rt                t_rt   total_fact_checks 
-##                   1                   1                   1</code></pre>
 </div>
 <div id="cleaning-transformation" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Cleaning / transformation<a href="data.html#cleaning-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Add participant id</span></span>
-<span id="cb3-2"><a href="data.html#cb3-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>participant_id<span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dataset)</span>
-<span id="cb3-3"><a href="data.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Define a factor converter to convert numeric columns to factors</span></span>
-<span id="cb3-4"><a href="data.html#cb3-4" aria-hidden="true" tabindex="-1"></a>factor_converter <span class="ot">=</span> <span class="cf">function</span>(data,columns){</span>
-<span id="cb3-5"><a href="data.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (x <span class="cf">in</span> columns){</span>
-<span id="cb3-6"><a href="data.html#cb3-6" aria-hidden="true" tabindex="-1"></a>    data[,x]<span class="ot">=</span><span class="fu">as.factor</span>(data[,x])</span>
-<span id="cb3-7"><a href="data.html#cb3-7" aria-hidden="true" tabindex="-1"></a>    data[,x]<span class="ot">=</span><span class="fu">addNA</span>(data[,x])</span>
-<span id="cb3-8"><a href="data.html#cb3-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb3-9"><a href="data.html#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(data)</span>
-<span id="cb3-10"><a href="data.html#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Add participant id</span></span>
+<span id="cb1-2"><a href="data.html#cb1-2" aria-hidden="true" tabindex="-1"></a>dataset<span class="sc">$</span>participant_id<span class="ot">=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dataset)</span>
+<span id="cb1-3"><a href="data.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Define a factor converter to convert numeric columns to factors</span></span>
+<span id="cb1-4"><a href="data.html#cb1-4" aria-hidden="true" tabindex="-1"></a>factor_converter <span class="ot">=</span> <span class="cf">function</span>(data,columns){</span>
+<span id="cb1-5"><a href="data.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (x <span class="cf">in</span> columns){</span>
+<span id="cb1-6"><a href="data.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    data[,x]<span class="ot">=</span><span class="fu">as.factor</span>(data[,x])</span>
+<span id="cb1-7"><a href="data.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    data[,x]<span class="ot">=</span><span class="fu">addNA</span>(data[,x])</span>
+<span id="cb1-8"><a href="data.html#cb1-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-9"><a href="data.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(data)</span>
+<span id="cb1-10"><a href="data.html#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>First, the data set is loaded in using the package Haven’s read_sav() function, as the data is stored as a .SAV file. This type of file is outputted by the application SPSS. It is then converted to a data frame for easier use. The authors of this study clearly spent time preparing their data for publishing and little transformation was needed. Upon examination, there are many categorical variables which have already been modified to be numeric, ordinal variables. However, they are still numeric and plotting in ggplot2 often requires ordinal variables to be in factor form. As such, many columns will need to be converted to factors. This is done with a custom function factor_converter() which takes columns and a data set as a inputs and creates factor level variables, including an NA factor. One option to explore is modifying some of these ordinal variables to be binary, as using ordinal scale on data that shouldn’t be ranked can obscure true relationships. Given this data relates to individual participants and their responses in the study, a new variable participant_id has been added to the data set to uniquely identify each participant. This allowed us to track whether any anomalies were related to specific individuals. For now, this allows us to move straight into exploratory data analysis.</p>
 </div>
 <div id="missing-value-analysis" class="section level2 hasAnchor" number="3.3">

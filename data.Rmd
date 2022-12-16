@@ -13,9 +13,9 @@ data <- read_sav("fake_news_confirmation_bias_x2.sav")
 #str(data)
 
 library(magrittr)
-(classes_data <- data.frame(variable = names(data),
-           class = sapply(data, typeof)))
-table(classes_data$variable)
+# (classes_data <- data.frame(variable = names(data),
+#            class = sapply(data, typeof)))
+# table(classes_data$variable)
 dataset = data
 #extracat::visna(data)
 ```
@@ -54,22 +54,22 @@ na_data=factor_converter(na_data,na_cols)
 
 #Plot histograms of columns with missing values
 aot01_chart=ggplot(na_data, aes(aot01)) +
-  geom_histogram(fill = "mediumpurple",stat="count") +  
+  geom_histogram(stat="count") +  
    theme_minimal() +
   xlab("Open Mindedness Question 1")
 
 aot04_chart=ggplot(na_data, aes( aot04)) +
-  geom_histogram(fill = "mediumpurple",stat="count") + 
+  geom_histogram(stat="count") + 
    theme_minimal() +
   xlab("Open Mindedness Question 4")
 
 aot09_chart=ggplot(na_data, aes( aot09)) +
-  geom_histogram(fill = "mediumpurple",stat="count") +
+  geom_histogram(stat="count") +
    theme_minimal() +
   xlab("Open Mindedness Question 9")
 
 fc_att3_chart=ggplot(na_data, aes(fc_att3)) +
-  geom_histogram(fill = "mediumpurple",stat="count") +  
+  geom_histogram(stat="count") +  
    theme_minimal() +
   xlab("Attitude towards Fact Checkers Question 3")
 
@@ -129,10 +129,10 @@ c4=data.frame(variable=as.factor(c("Q1","Q2","Q3","Q4","Q5","Q6","Q7","Q8","Q9",
 c4$variable=fct_relevel(c4$variable,c("Q1","Q2","Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10","Q11","avg"))
 
 #Plotting
-c11=ggplot(data=c1, aes(x=variable, y=Count)) + geom_bar(stat="identity",fill = "mediumpurple") + xlab("Participant 1") + ylab("Score (1-5)")+theme_minimal() +ggtitle("Attitude Towards Fact Checkers")
-c22=ggplot(data=c2, aes(x=variable, y=Count)) + geom_bar(stat="identity",fill = "mediumpurple") + xlab("Participant 197") + ylab("Score (1-5)")+theme_minimal() +ylim(0, 5)
-c33=ggplot(data=c3, aes(x=variable, y=Count)) + geom_bar(stat="identity",fill = "mediumpurple") + xlab("Participant 213") + theme_minimal() +ylab("Score (1-5)")
-c44=ggplot(data=c4, aes(x=variable, y=Count)) + geom_bar(stat="identity",fill = "mediumpurple") + xlab("Participant 215") + theme_minimal() +ylab("Score (1-5)")
+c11=ggplot(data=c1, aes(x=variable, y=Count)) + geom_bar(stat="identity") + xlab("Participant 1") + ylab("Score (1-5)")+theme_minimal() +ggtitle("Attitude Towards Fact Checkers")
+c22=ggplot(data=c2, aes(x=variable, y=Count)) + geom_bar(stat="identity") + xlab("Participant 197") + ylab("Score (1-5)")+theme_minimal() +ylim(0, 5)
+c33=ggplot(data=c3, aes(x=variable, y=Count)) + geom_bar(stat="identity") + xlab("Participant 213") + theme_minimal() +ylab("Score (1-5)")
+c44=ggplot(data=c4, aes(x=variable, y=Count)) + geom_bar(stat="identity") + xlab("Participant 215") + theme_minimal() +ylab("Score (1-5)")
 
 grid.arrange(c22,c33,c44,top=textGrob("Missing Open Minded Thinking Question"))
 ```
