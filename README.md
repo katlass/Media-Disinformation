@@ -10,7 +10,7 @@ We seek to illustrate findings presented previously by researchers in text-heavy
 scholarly publications. By doing so, we expect to contribute to the outreach of
 research in a topic that has critical implications in contemporary society.<br>
 
-We provide an R bookdown presentation including data exploration using ggplot2 and an interactive JavaScript component exploring outliers created using the D3.js library. <br>
+We provide an R bookdown presentation, including visualizations with ggplot2 and an interactive JavaScript component exploring outliers created using the D3.js library. <br>
 
 Project URL:
 https://katlass.github.io/media_disinformation/
