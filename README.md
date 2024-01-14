@@ -1,3 +1,4 @@
+## Data visualization exploring media disinformation, including interactive D3 javascript
 In this project we examine psychometric dimensions associated with
 political orientation and susceptibility to disinformation. The data was obtained
 from an academic study conducted by researchers at the California State University
