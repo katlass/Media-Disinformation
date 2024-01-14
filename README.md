@@ -1,4 +1,4 @@
-In this project we will be examining psychometric dimensions associated with
+In this project we examine psychometric dimensions associated with
 political orientation and susceptibility to disinformation. The data was obtained
 from an academic study conducted by researchers at the California State University
 San Marcos, and contains 247 observations across two study conditions of 53
@@ -10,5 +10,3 @@ research in a topic that has critical implications in contemporary society.
 
 Project URL:
 https://katlass.github.io/media_disinformation/
-
-This repo was initially generated from a bookdown template available here: https://github.com/jtr13/EDAVtemplate.
