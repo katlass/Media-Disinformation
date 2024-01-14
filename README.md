@@ -1,4 +1,4 @@
-## Data Visualization Exploring Media Disinformation, Including Interactive Javascript
+## Data Visualizations Exploring Media Disinformation, Including Interactive Javascript
 
 In this project we examine psychometric dimensions associated with
 political orientation and susceptibility to disinformation. 
